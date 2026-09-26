@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniel: preguntas de estudio (clases 1–5)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F5F9; --panel:#FFFFFF; --ink:#18223A; --muted:#55607A;
+  --lapis:#1F3F7A; --lapis-soft:#E3E9F4; --gold:#A87A1F; --rule:#D5DBE7;
+  --m-gold:#C9A13B; --m-silver:#AEB6C2; --m-bronze:#A8693A; --m-iron:#4F5763; --m-clay:#9C7B5E;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1729; --panel:#16223A; --ink:#E7ECF5; --muted:#A3AEC4;
+    --lapis:#8FB0EE; --lapis-soft:#1C2C4B; --gold:#E0B85A; --rule:#2A3A5A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1729; --panel:#16223A; --ink:#E7ECF5; --muted:#A3AEC4;
+  --lapis:#8FB0EE; --lapis-soft:#1C2C4B; --gold:#E0B85A; --rule:#2A3A5A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:1.0625rem;line-height:1.65}
+h1,h2,h3{font-family:"Marcellus","Trajan Pro",Georgia,serif;font-weight:400;line-height:1.2;margin:0}
+a{color:var(--lapis)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;gap:.25rem;overflow-x:auto;padding-top:.6rem;padding-bottom:.6rem;scrollbar-width:none}
+nav a{flex:none;text-decoration:none;color:var(--muted);font-size:.95rem;padding:.35rem .75rem;border-radius:999px;white-space:nowrap}
+nav a:hover{color:var(--ink);background:var(--lapis-soft)}
+
+/* hero */
+header{padding:3.5rem 0 2.5rem}
+.hero{display:grid;grid-template-columns:1fr 150px;gap:2.5rem;align-items:center}
+header h1{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--lapis);letter-spacing:.01em}
+header .sub{color:var(--muted);margin:.5rem 0 1.5rem;font-size:1.05rem}
+.thesis{font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.4;max-width:34ch;margin:0 0 1.75rem}
+.thesis cite{display:block;font-style:normal;font-size:.95rem;color:var(--gold);margin-top:.4rem}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:640px}
+.three div{border-top:2px solid var(--lapis);padding-top:.6rem}
+.three p{margin:0;font-size:.95rem;color:var(--muted)}
+.three strong{display:block;color:var(--ink);font-weight:600}
+
+/* statue spine: the memorable element */
+.statue{display:flex;flex-direction:column;align-items:center;gap:3px}
+.statue span{display:block;border-radius:6px}
+.s-gold{width:64px;height:64px;border-radius:50% 50% 40% 40% !important;background:var(--m-gold)}
+.s-silver{width:120px;height:78px;background:var(--m-silver)}
+.s-bronze{width:92px;height:74px;background:var(--m-bronze)}
+.s-iron{width:70px;height:104px;background:linear-gradient(90deg,var(--m-iron) 0 44%,transparent 44% 56%,var(--m-iron) 56%)}
+.s-clay{width:88px;height:22px;background:repeating-linear-gradient(90deg,var(--m-iron) 0 10px,var(--m-clay) 10px 20px)}
+.s-rock{width:30px;height:24px;background:var(--gold);border-radius:40% 55% 45% 50% !important;margin-top:.6rem}
+
+/* sections */
+section{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px);padding:2.75rem 0;border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:baseline;margin-bottom:1.5rem}
+.num{font-family:"Marcellus",Georgia,serif;font-size:3.2rem;line-height:1;color:var(--gold)}
+.sec-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem)}
+.sec-head p{margin:.35rem 0 0;color:var(--muted);max-width:62ch}
+.idea{background:var(--lapis-soft);border-left:4px solid var(--lapis);padding:1rem 1.25rem;border-radius:0 10px 10px 0;margin:0 0 1.75rem;max-width:72ch}
+.idea b{color:var(--lapis)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.box{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:1.1rem 1.25rem}
+.box h3{font-size:1.2rem;color:var(--lapis);margin-bottom:.5rem}
+.box ul,.box ol{margin:.2rem 0 0;padding-left:1.15rem}
+.box li{margin:.25rem 0}
+.box p{margin:.3rem 0}
+.ref{color:var(--gold);white-space:nowrap}
+.wide{grid-column:1/-1}
+
+/* tables */
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.97rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:"Marcellus",Georgia,serif;font-weight:400;color:var(--lapis)}
+.sw{display:inline-block;width:.8rem;height:.8rem;border-radius:3px;margin-right:.45rem;vertical-align:-1px}
+
+/* threads */
+.thread{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.5rem;margin-top:.5rem}
+.thread div{background:var(--lapis-soft);border-radius:8px;padding:.55rem .75rem;font-size:.95rem}
+.thread b{display:block;color:var(--lapis);font-weight:600}
+
+/* quiz */
+details{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:.8rem 1.1rem;margin:.55rem 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:.6rem}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";color:var(--gold);font-weight:600;width:1ch;flex:none}
+details[open] summary::before{content:"−"}
+details p{margin:.6rem 0 0 1.6rem;color:var(--muted)}
+.tools{display:flex;gap:.6rem;margin-bottom:.5rem}
+button{font:inherit;font-size:.92rem;background:transparent;color:var(--lapis);border:1px solid var(--lapis);border-radius:999px;padding:.35rem .9rem;cursor:pointer}
+button:hover{background:var(--lapis-soft)}
+.note{background:color-mix(in srgb,var(--gold) 9%,var(--panel));border-color:color-mix(in srgb,var(--gold) 40%,var(--rule))}
+.note h3{color:var(--gold)}
+.small-note{font-size:.93rem;color:var(--muted)}
+.statue-cap{font-size:.85rem;color:var(--muted);text-align:center;margin-top:.5rem;max-width:150px}
+.rjump{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 1.5rem}
+.rjump button{font-size:.88rem;padding:.25rem .75rem}
+.rgroup{margin:0 0 2rem;max-width:820px;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px)}
+.rgroup h3{font-size:1.35rem;color:var(--lapis);margin:0 0 .5rem;padding-bottom:.35rem;border-bottom:2px solid var(--gold)}
+/* exam */
+.exam-bar{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.exam-bar p{margin:0;color:var(--muted)}
+.q{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:1.1rem 1.25rem;margin:0 0 1rem;max-width:760px}
+.q-top{display:flex;gap:.75rem;align-items:baseline;flex-wrap:wrap;margin-bottom:.4rem}
+.q-n{font-family:"Marcellus",Georgia,serif;color:var(--gold);font-size:1.15rem}
+.q-ref{font-size:.9rem;color:var(--lapis);background:var(--lapis-soft);border-radius:999px;padding:.1rem .7rem}
+.q h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:1.08rem;margin:.2rem 0 .7rem}
+.opt{display:flex;gap:.65rem;align-items:flex-start;padding:.5rem .7rem;border:1px solid var(--rule);border-radius:8px;margin:.4rem 0;cursor:pointer}
+.opt:hover{background:var(--lapis-soft)}
+.opt input{margin-top:.35rem;accent-color:var(--lapis)}
+.graded .opt{cursor:default}
+.graded .opt:hover{background:transparent}
+.opt.ok{border-color:#2E8B57;background:color-mix(in srgb,#2E8B57 12%,transparent)}
+.opt.bad{border-color:#C0392B;background:color-mix(in srgb,#C0392B 12%,transparent)}
+.fb{margin-top:.7rem;padding:.7rem .9rem;border-radius:8px;font-size:.97rem}
+.fb.ok{background:color-mix(in srgb,#2E8B57 12%,transparent)}
+.fb.bad{background:color-mix(in srgb,#C0392B 12%,transparent)}
+.fb b{display:block;margin-bottom:.2rem}
+.score{font-family:"Marcellus",Georgia,serif;font-size:1.6rem;color:var(--lapis);margin:0 0 1rem}
+button.primary{background:var(--lapis);color:var(--paper);border-color:var(--lapis)}
+button.primary:hover{background:var(--lapis);opacity:.9}
+button:disabled{opacity:.45;cursor:not-allowed}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--rule)}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+  .statue{display:none}
+  .three{grid-template-columns:1fr}
+  .num{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Secciones">
+  <div class="wrap">
+    <a href="#quiz">Quiz de las diapositivas</a>
+    <a href="#repaso">Preguntas de repaso</a>
+    <a href="#examen">Examen con la Biblia</a>
+  </div>
+</nav>
+
+<header class="wrap">
+  <h1>Daniel</h1>
+  <p class="sub">Preguntas de estudio de las clases 1 a 5, capítulos 1 al 6</p>
+</header>
+
+<main>
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">★</span><div><h2>Quiz de las diapositivas</h2><p>10 preguntas de selección múltiple sobre lo que enseñan las cinco clases: reyes, fechas, la estatua, los decretos, Darío, Ciro, mene‑tekel y los puntos clave. Cada intento trae 10 preguntas que no han salido antes; solo se repiten cuando ya viste todo el banco.</p></div></div>
+    <div class="exam-bar">
+      <p id="quizInfo"></p>
+      <button type="button" id="quizNew">Nuevo intento</button>
+    </div>
+    <div id="quizScore"></div>
+    <div id="quizBox"></div>
+    <button type="button" class="primary" id="quizGrade">Calificar</button>
+  </div>
+</section>
+
+<!-- REPASO -->
+<section id="repaso">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">?</span><div><h2>Preguntas de repaso</h2><p>Organizadas por tema. Intenta responder en voz alta o por escrito antes de abrir cada una.</p></div></div>
+    <div class="tools"><button type="button" id="openAll">Mostrar todas</button><button type="button" id="closeAll">Ocultar todas</button></div>
+    <div class="rjump" id="rjump">
+      <button type="button" data-t="r-vers">Versículos clave</button>
+      <button type="button" data-t="r-hist">Las historias</button>
+      <button type="button" data-t="r-estatua">La estatua</button>
+      <button type="button" data-t="r-c1">Clase 1</button>
+      <button type="button" data-t="r-c2">Clase 2</button>
+      <button type="button" data-t="r-c3">Clase 3</button>
+      <button type="button" data-t="r-c4">Clase 4</button>
+      <button type="button" data-t="r-c5">Clase 5</button>
+      <button type="button" data-t="r-nombres">Nombres y fechas</button>
+    </div>
+
+    <div class="rgroup" id="r-vers">
+      <h3>Versículos clave</h3>
+      <details><summary>¿Qué dice Daniel 2:21 y por qué es el versículo clave del libro?</summary><p>Dios cambia los tiempos y las edades, quita reyes y pone reyes, y da sabiduría a los sabios. Resume el tema de todo el libro: Dios es soberano sobre la historia y los reinos.</p></details>
+      <details><summary>¿Qué pasaje se usa como tema general del libro?</summary><p>Daniel 2:20–22, el cántico de Daniel: el Dios soberano gobierna los imperios humanos hasta establecer el Reino del Mesías.</p></details>
+      <details><summary>¿Cuál es la frase clave de Daniel 1:2 y qué enseña?</summary><p>“El Señor entregó”. En hebreo <i>natán</i>: entregar, poner bajo autoridad. No venció Babilonia por su fuerza; Dios entregó a Judá en cumplimiento de su Palabra.</p></details>
+      <details><summary>¿Qué dice Daniel 1:8 y qué principio se saca?</summary><p>Daniel propuso en su corazón no contaminarse con la comida ni el vino del rey. Principio: las convicciones se forman antes de las crisis, no durante ellas.</p></details>
+      <details><summary>¿Qué tres versículos de Daniel 1 muestran que Dios es el protagonista?</summary><p>Versículo 2 (Dios entregó), versículo 9 (Dios dio gracia) y versículo 17 (Dios dio conocimiento).</p></details>
+      <details><summary>¿Qué significa Daniel 1:21?</summary><p>Daniel continuó hasta el primer año de Ciro. Sirvió durante todo el imperio babilónico y hasta el persa: los imperios cambian, pero Dios sostiene a su siervo.</p></details>
+      <details><summary>¿Qué enseña Daniel 2:28 con la palabra “misterio”?</summary><p>Hay un Dios en los cielos que revela los misterios. <i>Raz</i> es algo imposible de conocer sin revelación divina, no algo oculto para siempre.</p></details>
+      <details><summary>¿Qué dice Daniel 2:44 sobre el Reino de Dios?</summary><p>Dios levantará un reino que nunca será destruido ni dado a otro pueblo; desmenuzará a todos los reinos y permanecerá para siempre.</p></details>
+      <details><summary>¿Qué dijeron los tres jóvenes en Daniel 3:17–18?</summary><p>Dios puede librarnos, y nos librará; y si no, igual no serviremos a tus dioses ni adoraremos la estatua. Su obediencia no dependía del resultado.</p></details>
+      <details><summary>¿Qué frase de Daniel 4:30 muestra el orgullo de Nabucodonosor?</summary><p>“¿No es esta la gran Babilonia que yo edifiqué…?” Se atribuyó la ciudad, el poder y la gloria que pertenecen a Dios (Isaías 42:8).</p></details>
+      <details><summary>¿Cuál es el texto clave de la clase 4 y qué dice?</summary><p>Daniel 4:35: todos los habitantes de la tierra son como nada ante Dios; Él hace según su voluntad y nadie puede detener su mano ni pedirle cuentas.</p></details>
+      <details><summary>¿Qué pasó en Daniel 4:34?</summary><p>Al final del tiempo, Nabucodonosor alzó sus ojos al cielo, le fue devuelta la razón y bendijo al Altísimo. La restauración empieza cuando se reconoce quién gobierna.</p></details>
+      <details><summary>¿Qué le reprochó Daniel a Belsasar en Daniel 5:22?</summary><p>Que no humilló su corazón aunque sabía todo lo que le había pasado a Nabucodonosor. Conocía la lección y la ignoró.</p></details>
+      <details><summary>¿Qué dice Daniel 6:10 sobre la oración de Daniel?</summary><p>Entró en su casa, con las ventanas abiertas hacia Jerusalén, y oraba y daba gracias tres veces al día, como lo solía hacer antes. La oración era su estilo de vida.</p></details>
+      <details><summary>¿Qué dice Daniel 6:22?</summary><p>Dios envió su ángel y cerró la boca de los leones, porque Daniel fue hallado inocente. Dios no quitó el foso, pero limitó el poder del peligro.</p></details>
+      <details><summary>¿Por qué es importante Jeremías 25:9 para entender el exilio?</summary><p>Dios llama a Nabucodonosor “mi siervo”: aunque era pagano, Dios lo usó como instrumento de su juicio sobre Judá.</p></details>
+      <details><summary>¿Qué promete Jeremías 29:10?</summary><p>Que al cumplirse setenta años en Babilonia, Dios visitaría a su pueblo y lo haría volver. Dios había fijado incluso la duración del exilio.</p></details>
+      <details><summary>¿Qué versículo marca el límite de la obediencia al gobierno?</summary><p>Hechos 5:29: es necesario obedecer a Dios antes que a los hombres.</p></details>
+      <details><summary>¿Qué versículo usa la clase para mostrar que Jesús reconoció a Daniel como profeta?</summary><p>Mateo 24:15, donde Jesús habla de la abominación desoladora “de que habló el profeta Daniel”.</p></details>
+      <details><summary>¿Qué son los “tiempos de los gentiles” y dónde se mencionan?</summary><p>Lucas 21:24. Es el período en que las naciones gentiles dominan, desde Babilonia hasta que Dios establezca su Reino. Daniel 2 presenta ese programa.</p></details>
+      <details><summary>¿Qué enseña Hebreos 1:1–2 sobre los sueños y visiones?</summary><p>En el AT Dios habló de muchas maneras, incluyendo sueños y visiones; hoy habla por medio de Cristo y las Escrituras. La revelación progresiva culmina en Jesucristo.</p></details>
+      <details><summary>¿Qué representa Génesis 11:4 en la clase 2?</summary><p>“Hagámonos un nombre”: Babel, origen de Babilonia, representa a la humanidad organizada sin Dios y buscando su propia gloria.</p></details>
+    </div>
+
+    <div class="rgroup" id="r-hist">
+      <h3>Las historias</h3>
+      <details><summary>Daniel 1: ¿qué propuso Daniel al mayordomo y qué resultado hubo?</summary><p>Una prueba de diez días comiendo legumbres y bebiendo agua. Al final tenían mejor aspecto y más robustez que los demás, y luego el rey los halló diez veces mejores que sus magos y astrólogos.</p></details>
+      <details><summary>Daniel 1: ¿qué aceptó Daniel y qué rechazó?</summary><p>Aceptó el idioma, la educación y el cargo. Rechazó la comida y el vino del rey, es decir, la contaminación espiritual.</p></details>
+      <details><summary>Daniel 2: ¿qué exigió el rey a los sabios y qué ordenó cuando fallaron?</summary><p>Que le dijeran el sueño y su interpretación sin que él lo contara. Como no pudieron, ordenó matar a todos los sabios de Babilonia, incluidos Daniel y sus compañeros.</p></details>
+      <details><summary>Daniel 2: ¿qué hizo Daniel ante la sentencia de muerte?</summary><p>Habló con prudencia a Arioc, pidió tiempo al rey, reunió a sus compañeros para pedir misericordia a Dios, recibió la revelación en visión de noche y bendijo a Dios antes de ir ante el rey.</p></details>
+      <details><summary>Daniel 2: ¿cómo termina el capítulo?</summary><p>Nabucodonosor reconoce que el Dios de Daniel es Dios de dioses, y hace a Daniel gobernador de la provincia de Babilonia y jefe de los sabios. Daniel pide cargos para sus tres compañeros.</p></details>
+      <details><summary>Daniel 3: ¿qué ordenaba el decreto del rey?</summary><p>Que al oír la música todos se postraran ante la estatua de oro. Quien no lo hiciera sería echado al horno de fuego.</p></details>
+      <details><summary>Daniel 3: ¿qué vio el rey dentro del horno?</summary><p>Cuatro hombres sueltos paseándose en el fuego sin daño; el cuarto era semejante a hijo de los dioses. Solo se quemaron las cuerdas; ni siquiera olían a fuego.</p></details>
+      <details><summary>Daniel 3: ¿cómo reaccionó Nabucodonosor al final?</summary><p>Bendijo al Dios de Sadrac, Mesac y Abed‑nego, prohibió hablar contra Él y engrandeció a los tres jóvenes en la provincia de Babilonia.</p></details>
+      <details><summary>Daniel 4: ¿qué soñó Nabucodonosor y qué significaba?</summary><p>Un árbol enorme que alcanzaba el cielo, alimentaba a todos y daba refugio a los animales, hasta que un vigilante ordenó cortarlo. El árbol era el rey y su reino, que sería humillado por siete tiempos.</p></details>
+      <details><summary>Daniel 4: ¿cuándo y cómo se cumplió el sueño?</summary><p>Doce meses después, mientras se jactaba en su palacio. Aún hablaba cuando vino la sentencia: fue echado de entre los hombres y comió hierba como los bueyes hasta reconocer que el Altísimo gobierna.</p></details>
+      <details><summary>Daniel 5: ¿qué hizo Belsasar en su banquete?</summary><p>Invitó a mil príncipes y bebió en los vasos de oro y plata del templo de Jerusalén mientras alababa a dioses de oro, plata, bronce, hierro, madera y piedra.</p></details>
+      <details><summary>Daniel 5: ¿quién sugirió llamar a Daniel y qué le ofreció el rey?</summary><p>La reina recordó que Daniel había interpretado sueños en tiempos de Nabucodonosor. El rey le ofreció púrpura, collar de oro y el tercer lugar del reino; Daniel respondió que se quedara con sus regalos.</p></details>
+      <details><summary>Daniel 5: ¿cómo termina el capítulo?</summary><p>Esa misma noche mataron a Belsasar, y Darío de Media, de 62 años, tomó el reino.</p></details>
+      <details><summary>Daniel 6: ¿por qué los gobernadores idearon el decreto?</summary><p>Por envidia: Darío pensaba poner a Daniel sobre todo el reino. Como no le encontraron ninguna falta, buscaron acusarlo por su fe.</p></details>
+      <details><summary>Daniel 6: ¿qué hizo el rey al saber que Daniel había desobedecido el decreto?</summary><p>Se entristeció y trató de librarlo hasta la puesta del sol, pero la ley de medos y persas no podía cambiarse. Echaron a Daniel al foso y sellaron la piedra.</p></details>
+      <details><summary>Daniel 6: ¿qué hicieron el rey y Daniel esa noche?</summary><p>El rey ayunó y no pudo dormir; muy temprano corrió al foso. Daniel estaba ileso y en paz.</p></details>
+      <details><summary>Daniel 6: ¿cómo termina el capítulo?</summary><p>Los acusadores fueron echados al foso. Darío decretó que en todo su reino se temiera al Dios de Daniel, que vive, reina, salva y libra. Daniel prosperó bajo Darío y Ciro.</p></details>
+    </div>
+
+    <div class="rgroup" id="r-estatua">
+      <h3>La estatua de Daniel 2</h3>
+      <details><summary>Nombra las partes de la estatua en orden, de arriba hacia abajo.</summary><p>Cabeza de oro, pecho y brazos de plata, vientre y muslos de bronce, piernas de hierro, pies de hierro mezclado con barro. Luego una piedra cortada sin manos la derriba.</p></details>
+      <details><summary>¿Qué imperio representa cada metal y en qué fechas?</summary><p>Oro: Babilonia (605–539 a.C.). Plata: Medo‑Persia (539–331 a.C.). Bronce: Grecia (331–168 a.C.). Hierro: Roma (168 a.C.–476 d.C.). Hierro y barro: los reinos divididos posteriores.</p></details>
+      <details><summary>¿Qué significa que los metales valgan menos pero sean más duros al descender?</summary><p>Cada imperio tiene menos esplendor que el anterior, pero más fuerza o dureza.</p></details>
+      <details><summary>¿Por qué Babilonia es de oro? Da evidencias históricas.</summary><p>Por su esplendor, riqueza, grandeza arquitectónica y la autoridad absoluta del rey (Jeremías 51:7). Evidencias: la Puerta de Ishtar, los Jardines Colgantes, templos revestidos de oro.</p></details>
+      <details><summary>¿Por qué Medo‑Persia es de plata y qué representan los dos brazos?</summary><p>La plata vale menos que el oro pero es más resistente: un reino menos esplendoroso pero más fuerte administrativamente. Los dos brazos son medos y persas unidos.</p></details>
+      <details><summary>¿Por qué Grecia es de bronce?</summary><p>El bronce era el metal de armas, armaduras, cascos y escudos: representa la guerra. Alejandro Magno conquistó casi todo el mundo conocido en unos diez años sin perder una batalla.</p></details>
+      <details><summary>¿Qué simboliza el hierro y qué características de Roma menciona la clase?</summary><p>Fuerza, dureza, disciplina y poder militar. Características: derecho romano, red de caminos, Pax Romana y ejército profesional.</p></details>
+      <details><summary>¿Qué representan los pies de hierro mezclado con barro?</summary><p>Fortaleza combinada con fragilidad: unidad aparente, división interna, inestabilidad política y falta de cohesión.</p></details>
+      <details><summary>¿Qué significa que la piedra fue cortada “sin manos”?</summary><p>Que su origen es divino, no humano.</p></details>
+      <details><summary>¿Quién es la piedra y con qué versículo se relaciona?</summary><p>Cristo. Salmo 118:22 (la piedra desechada vino a ser cabeza del ángulo); también Efesios 2:20 y 1 Pedro 2:6–8.</p></details>
+      <details><summary>¿Por qué la piedra golpea los pies y no la cabeza?</summary><p>Porque el Reino de Dios llega en la etapa final de los imperios humanos y destruye todo el sistema de una vez.</p></details>
+      <details><summary>¿Qué pasa con la piedra después de derribar la estatua?</summary><p>Se convierte en un gran monte que llena toda la tierra: el Reino eterno y universal del Mesías.</p></details>
+      <details><summary>¿Qué quiere decir que “la estatua impresiona por fuera, pero es débil en su base”?</summary><p>Los reinos humanos parecen poderosos, pero descansan sobre una base frágil y no pueden permanecer.</p></details>
+      <details><summary>¿Cómo se conecta la estatua de Daniel 2 con la de Daniel 3?</summary><p>En Daniel 2 Dios le dice a Nabucodonosor que él es solo la cabeza de oro y que su reino pasará. En Daniel 3 él hace una estatua toda de oro, como queriendo que su reino permanezca.</p></details>
+      <details><summary>¿En qué capítulo empieza a cumplirse la estatua y cómo?</summary><p>En Daniel 5: cae Babilonia (la cabeza de oro) y la toman los medos y persas (la plata).</p></details>
+    </div>
+
+    <div class="rgroup" id="r-c1">
+      <h3>Clase 1: introducción</h3>
+      <details><summary>¿Cuál es el tema central y el propósito del libro?</summary><p>Tema: la soberanía absoluta de Dios sobre la historia, los reinos humanos y el futuro Reino del Mesías. Propósito: mostrar que Dios gobierna las naciones, sostiene a su pueblo, anuncia al Mesías y fortalece la fidelidad del creyente en una cultura contraria a Dios.</p></details>
+      <details><summary>¿Cuál es el principio teológico de la introducción?</summary><p>Los imperios no gobiernan sobre Dios; Dios gobierna sobre los imperios.</p></details>
+      <details><summary>¿Cuáles fueron las causas del exilio?</summary><p>Desobediencia al pacto (Levítico 26:33; Deuteronomio 28:64), idolatría y declive espiritual, injusticia y corrupción de sacerdotes y líderes (Ezequiel 22). Dios usó a Nabucodonosor como instrumento.</p></details>
+      <details><summary>¿Cuáles fueron las tres deportaciones?</summary><p>605 a.C. (Daniel), 597 a.C. (Ezequiel) y 586 a.C. (destrucción del templo).</p></details>
+      <details><summary>¿Cómo se divide el libro por contenido y por idioma?</summary><p>Contenido: caps. 1–6 historias, caps. 7–12 visiones. Idioma: 1:1–2:3 hebreo, 2:4–7:28 arameo, 8–12 hebreo. El arameo enfatiza las naciones; el hebreo, a Israel.</p></details>
+      <details><summary>Explica los cuatro principios para interpretar Daniel.</summary><p>1) Histórico‑gramatical: interpretación primero, aplicación después. 2) Reconocer el lenguaje simbólico sin espiritualizarlo: el símbolo es figurado, el cumplimiento literal. 3) Perspectiva telescópica: un hecho cercano y otro lejano en la misma profecía. 4) Diferenciar Israel y la iglesia.</p></details>
+      <details><summary>Da dos ejemplos de la perspectiva telescópica.</summary><p>Daniel 11: Antíoco Epífanes y el anticristo final. Isaías 61: primera y segunda venida de Cristo (comparar con Lucas 4:17–21).</p></details>
+      <details><summary>¿Cuál es la “ruta de Daniel”?</summary><p>Dn 2: reinos humanos → Reino de Dios. Dn 7: imperios → Hijo del Hombre → Reino eterno. Dn 9: Israel → Jerusalén → Mesías. Dn 12: tribulación → liberación → resurrección → consumación.</p></details>
+      <details><summary>¿Cuáles son los tres grandes temas doctrinales?</summary><p>La soberanía de Dios (4:35), el Reino mesiánico y el Hijo del Hombre (7:13–14), y la perseverancia del remanente (Romanos 11:5).</p></details>
+      <details><summary>¿Cuáles son las tres preguntas de aplicación de la clase 1?</summary><p>¿Quién gobierna? Dios. ¿Hacia dónde va la historia? Al Reino del Mesías. ¿Cómo debe vivir el creyente mientras espera? Con fidelidad.</p></details>
+    </div>
+
+    <div class="rgroup" id="r-c2">
+      <h3>Clase 2: Daniel 1</h3>
+      <details><summary>¿Cuáles son los cuatro movimientos de Daniel 1?</summary><p>Dios entrega a Daniel (1–2), Babilonia intenta formarlo (3–7), Daniel decide no contaminarse (8–16), Dios lo capacita y exalta (17–21).</p></details>
+      <details><summary>¿Qué buscaba conquistar Babilonia además de territorios?</summary><p>La mente, la identidad, los valores y la adoración.</p></details>
+      <details><summary>¿Qué representaban Jerusalén y Babilonia?</summary><p>Jerusalén: pacto, templo y presencia divina. Babilonia: autosuficiencia humana y rebelión.</p></details>
+      <details><summary>¿Cuál es el principio de “cambiar su educación”?</summary><p>Una cultura cambia primero la manera de pensar antes de cambiar la manera de vivir. La batalla comienza en la mente (Romanos 12:2).</p></details>
+      <details><summary>¿Qué implica la palabra “propuso”?</summary><p>Resolución interna, decisión previa y convicción establecida: Daniel decidió antes de enfrentar la prueba.</p></details>
+      <details><summary>¿Cuáles son las tres posibles razones por las que rechazó la comida?</summary><p>Su relación con la idolatría, la violación de la ley ceremonial y ser una señal de dependencia del rey.</p></details>
+      <details><summary>¿Qué NO enseña el relato de los diez días?</summary><p>No enseña que obedecer a Dios garantiza automáticamente mejor salud física. Enseña que Dios sostuvo a quienes le fueron fieles.</p></details>
+      <details><summary>¿Qué significa “fidelidad con sabiduría”?</summary><p>Daniel no empezó con rebelión; propuso una prueba con respeto. La fidelidad bíblica muchas veces es sabiduría, respeto y convicción, no confrontación.</p></details>
+      <details><summary>¿Cuáles son las cuatro “dos realidades” que enseña Daniel?</summary><p>Vive en Babilonia pero pertenece a Dios; aprende la cultura pero conserva su cosmovisión bíblica; sirve al rey pero adora solo a Dios; participa en la sociedad pero no adopta sus valores contrarios a Dios.</p></details>
+      <details><summary>¿Qué enseña la cristología de la clase 2?</summary><p>Nuestra fidelidad no es la base de la salvación. Cristo fue perfectamente fiel donde fallamos; nosotros vivimos fielmente por la gracia de Dios.</p></details>
+      <details><summary>¿Cuáles son las cinco conclusiones de Daniel 1?</summary><p>Dios nunca perdió el control; la identidad vale más que la comodidad; la fidelidad comienza con una decisión; la obediencia honra a Dios aunque el resultado no sea inmediato; los imperios pasan, Dios permanece.</p></details>
+    </div>
+
+    <div class="rgroup" id="r-c3">
+      <h3>Clase 3: Daniel 2</h3>
+      <details><summary>¿Cuál es el tema de Daniel 2?</summary><p>La historia humana avanza hacia un Reino establecido por Dios.</p></details>
+      <details><summary>¿Qué edad tenía Daniel y cuál era la situación de Jerusalén?</summary><p>Unos 18–20 años (603–602 a.C.). Jerusalén ya estaba conquistada; el templo seguía en pie pero sería destruido pocos años después.</p></details>
+      <details><summary>¿Qué tenía Babilonia y qué le faltaba?</summary><p>Tenía astrología, magia y sabiduría humana, pero no revelación.</p></details>
+      <details><summary>¿Cuáles son las cinco características de la oración de Daniel?</summary><p>Busca a sus hermanos, pide misericordia, espera la respuesta, adora antes de actuar y da toda la gloria a Dios.</p></details>
+      <details><summary>¿Qué atributos de Dios presenta el cántico de Daniel?</summary><p>Sabio, poderoso, soberano, revelador y digno de adoración.</p></details>
+      <details><summary>Menciona los siete datos importantes de Daniel 2.</summary><p>Está en arameo; la estatua impresiona por fuera pero es débil en su base; la piedra golpea los pies; es la primera profecía panorámica; la piedra se convierte en monte; responde a la ansiedad del poder; Daniel es modelo de liderazgo espiritual.</p></details>
+      <details><summary>¿Por qué Daniel 2 es uno de los capítulos proféticos más importantes?</summary><p>Es la primera profecía panorámica de la historia, introduce los tiempos de los gentiles, es base para Daniel 7, 8, 9 y Apocalipsis, revela el control de Dios sobre la historia y anuncia el Reino mesiánico eterno.</p></details>
+      <details><summary>¿Nabucodonosor se convirtió en Daniel 2?</summary><p>No. Reconoció que el Dios de Daniel es Dios de dioses, pero solo admitió su superioridad. El cambio viene en Daniel 4.</p></details>
+      <details><summary>¿Qué recibió Daniel y qué siguió siendo?</summary><p>Recibió autoridad, riqueza y reconocimiento, pero siguió siendo siervo de Dios.</p></details>
+      <details><summary>Menciona los principios teológicos de Daniel 2 con sus referencias.</summary><p>Dios controla la historia (Dn 2:21); la oración precede a la dirección de Dios (Stg 1:5); la sabiduría humana es insuficiente sin revelación (1 Co 1:20–25); Dios revela a quienes dependen de Él; los reinos humanos son temporales (Ap 11:15); Cristo es la piedra angular (Ef 2:20; 1 P 2:6–8).</p></details>
+      <details><summary>¿Cuáles son las conclusiones prácticas de Daniel 2?</summary><p>Ora antes de actuar, descansa en la soberanía de Dios, glorifica a Dios en el éxito, invierte en el Reino eterno y vive con la mirada puesta en el plan de Dios.</p></details>
+    </div>
+
+    <div class="rgroup" id="r-c4">
+      <h3>Clase 4: Daniel 3–4</h3>
+      <details><summary>¿Cuál es la idea central de la clase 4?</summary><p>El hombre busca construir reinos donde él recibe adoración, pero Dios interviene para mostrar que solo su Reino permanece.</p></details>
+      <details><summary>¿Qué es idolatría según la clase?</summary><p>Dar a cualquier persona o cosa el lugar que solo pertenece a Dios (Colosenses 3:5).</p></details>
+      <details><summary>¿Cuál es la secuencia de la “religión del Estado”?</summary><p>Gobierno → cultura → música → adoración. La música no era el problema; era el mecanismo para lograr obediencia colectiva.</p></details>
+      <details><summary>¿Qué intenta controlar todo sistema alejado de Dios?</summary><p>El pensamiento, la conciencia y la adoración.</p></details>
+      <details><summary>¿Qué principio se relaciona con Isaías 40:8?</summary><p>El hombre intenta eternizar lo que Dios declaró temporal; solo la Palabra de Dios permanece.</p></details>
+      <details><summary>¿Cuáles son las cuatro razones por las que Dios permitió el horno?</summary><p>Manifestar su gloria a todo el imperio, fortalecer el testimonio de sus escogidos, mostrar su poder en medio del fuego y humillar la soberbia del rey.</p></details>
+      <details><summary>¿Quién era el cuarto hombre en el horno?</summary><p>Muchos lo interpretan como una cristofanía. No se puede afirmar con certeza; lo seguro es que Dios promete estar con los suyos en la prueba (Isaías 43:1–2; Mateo 28:20).</p></details>
+      <details><summary>¿En qué casos el cristiano no debe obedecer al gobierno?</summary><p>Cuando ordena pecar, prohíbe obedecer a Dios, exige idolatría (Dn 3) o prohíbe orar (Dn 6). La regla general es obedecer (Romanos 13:1–2).</p></details>
+      <details><summary>¿Por qué se dice que Daniel 3 es un patrón profético?</summary><p>Anticipa rasgos del fin: un gobierno mundial dominante, una imagen ligada a la adoración y la persecución del remanente fiel.</p></details>
+      <details><summary>¿Qué tiene de especial Daniel 4?</summary><p>Es el único capítulo del AT escrito desde la perspectiva de un rey pagano que testifica de Dios.</p></details>
+      <details><summary>¿Cuáles son las cinco características del árbol?</summary><p>Grandeza, autoridad, prosperidad, influencia y protección.</p></details>
+      <details><summary>¿Cuáles son los tres pasos de Nabucodonosor en Daniel 4?</summary><p>Orgullo (4:30), disciplina (4:31–33; Dios juzga el corazón) y restauración (4:34–37).</p></details>
+      <details><summary>¿Qué señales de conversión muestra Nabucodonosor?</summary><p>Reconoce la soberanía de Dios, alaba al Altísimo, se humilla y publica su testimonio. Son señales esperanzadoras, sin afirmar más de lo que dice el texto.</p></details>
+      <details><summary>Compara Daniel 3 y Daniel 4.</summary><p>Dn 3: Dios prueba a los fieles; tres jóvenes; horno; fidelidad; liberación. Dn 4: Dios disciplina al orgulloso; un rey; locura; orgullo; restauración. En ambos, la gloria es solo de Dios.</p></details>
+      <details><summary>¿Cuáles son los cinco principios teológicos de la clase 4?</summary><p>Solo Dios es digno de adoración; la fidelidad no depende de las circunstancias; Dios puede permitir el horno pero nunca abandona a sus hijos; el orgullo precede a la caída; Dios humilla para restaurar, no solo para destruir.</p></details>
+    </div>
+
+    <div class="rgroup" id="r-c5">
+      <h3>Clase 5: Daniel 5–6</h3>
+      <details><summary>¿Cuál es la idea central de la clase 5?</summary><p>Los reinos humanos son evaluados por Dios, pero los fieles son preservados por Él.</p></details>
+      <details><summary>¿Por qué Daniel 5–6 marca un cambio en el libro?</summary><p>Empieza a cumplirse Daniel 2: cae la cabeza de oro (Babilonia) y Daniel sigue fiel bajo el nuevo imperio.</p></details>
+      <details><summary>¿Cuál era el ambiente en Babilonia antes de su caída?</summary><p>Afuera la situación era crítica, pero adentro había seguridad y celebración. Babilonia parecía invencible, pero Dios ya había decretado su caída (Jeremías 51:11).</p></details>
+      <details><summary>Explica el “camino de la irreverencia” de Belsasar.</summary><p>Acción: usar los vasos sagrados en un banquete pagano. Significado: profanación deliberada. Declaración implícita: no reconozco la autoridad de Dios. Respuesta divina: la mano que escribe en la pared.</p></details>
+      <details><summary>¿Qué significan mene, mene, tekel, uparsin?</summary><p>Mene: contado (Dios puso fin a tu reino). Mene repetido: juicio definitivo. Tekel: pesado y hallado falto. Uparsin/peres: dividido y dado a medos y persas.</p></details>
+      <details><summary>¿Qué hizo Daniel antes de interpretar la escritura?</summary><p>Predicó: le recordó a Belsasar la historia de Nabucodonosor y le reprochó no haberse humillado.</p></details>
+      <details><summary>¿Qué enseña la rapidez del juicio sobre Belsasar?</summary><p>No pasaron años ni meses, sino horas. Dios no solo anuncia sus juicios, los ejecuta en su tiempo.</p></details>
+      <details><summary>¿Con qué se mide la verdadera espiritualidad según la clase?</summary><p>Con la perseverancia. Daniel, con más de 80 años, seguía siendo fiel.</p></details>
+      <details><summary>¿Cómo describe Daniel 6 el carácter de Daniel?</summary><p>Tenía un espíritu superior; no se le halló corrupción, negligencia ni fraude (6:3–4; Tito 2:7).</p></details>
+      <details><summary>¿Cuáles son los cuatro rasgos de la oración de Daniel en 6:10?</summary><p>Intimidad (entró en su casa), testimonio (ventanas abiertas), constancia (tres veces al día) y gratitud (daba gracias).</p></details>
+      <details><summary>¿Qué contraste hay entre Daniel y el rey la noche del foso?</summary><p>El rey no pudo dormir; Daniel tuvo paz. La paz de Dios vence al temor (Filipenses 4:7; Salmo 37:5).</p></details>
+      <details><summary>¿Qué paralelos hay entre Daniel 6 y Cristo?</summary><p>Ambos inocentes, acusados por envidia, condenados injustamente, con una piedra sellada; Daniel sale vivo del foso y Cristo resucita, y ambas liberaciones glorifican a Dios.</p></details>
+      <details><summary>¿Cómo reacciona cada rey ante Dios en Daniel 1–6?</summary><p>Nabucodonosor reconoce, Belsasar es juzgado, Darío glorifica.</p></details>
+      <details><summary>¿Cuáles son los principios teológicos de la clase 5?</summary><p>Dios juzga con justicia (Sal 9:8); el orgullo precede al juicio (Pr 16:18); la fidelidad diaria vale más que el heroísmo ocasional; la integridad despierta oposición (2 Ti 3:12); Dios acompaña en el foso (Is 43:2); los imperios pasan y el Reino del Mesías es eterno (Dn 2:44; 7:14).</p></details>
+    </div>
+
+    <div class="rgroup" id="r-nombres">
+      <h3>Nombres y fechas</h3>
+      <details><summary>¿Qué significa el nombre Daniel y qué nombre le pusieron en Babilonia?</summary><p>Daniel: “Dios es mi juez”. Beltsasar: “que Bel proteja su vida”.</p></details>
+      <details><summary>¿Cuál es la diferencia entre Beltsasar y Belsasar?</summary><p>Beltsasar es el nombre babilónico de Daniel (1:7). Belsasar es el rey de Daniel 5.</p></details>
+      <details><summary>¿Qué nombres recibieron los tres amigos de Daniel?</summary><p>Ananías → Sadrac, Misael → Mesac, Azarías → Abed‑nego.</p></details>
+      <details><summary>¿Quiénes eran Aspenaz y Arioc?</summary><p>Aspenaz: jefe de los eunucos (Daniel 1). Arioc: capitán de la guardia que iba a matar a los sabios (Daniel 2).</p></details>
+      <details><summary>¿Bajo qué reyes sirvió Daniel?</summary><p>Nabucodonosor, Belsasar, Darío de Media y Ciro de Persia.</p></details>
+      <details><summary>¿Cuándo se escribió el libro y cuándo cayó Babilonia?</summary><p>El libro, aprox. 536–530 a.C. Babilonia cayó en 539 a.C.</p></details>
+      <details><summary>¿Por qué Belsasar solo podía ofrecer el tercer lugar del reino?</summary><p>Porque el rey principal era su padre Nabonido, y Belsasar gobernaba como segundo.</p></details>
+    </div>
+  </div>
+</section>
+<!-- EXAMEN -->
+<section id="examen">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">✎</span><div><h2>Examen con la Biblia abierta</h2><p>10 preguntas al azar. Cada una indica el pasaje que debes buscar en tu Biblia (RVR1960). Responde todas y luego califica. Cada intento trae preguntas que no han salido antes, hasta agotar el banco.</p></div></div>
+    <div class="exam-bar">
+      <p id="examInfo"></p>
+      <button type="button" id="newAttempt">Nuevo intento</button>
+    </div>
+    <div id="examScore"></div>
+    <div id="examBox"></div>
+    <button type="button" class="primary" id="gradeBtn">Calificar</button>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Resumen personal de estudio basado en las clases del curso de Daniel.</div></footer>
+
+<script>
+// Navegación interna: desplaza dentro de la página sin cambiar la URL (funciona en el visor de Claude y en Chrome)
+document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.getElementById(a.getAttribute('href').slice(1));
+    if(t) t.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  });
+});
+// Banco de preguntas: a[0] es siempre la respuesta correcta (se barajan al mostrar)
+const BANK = [
+ {id:1, ref:"Daniel 1:1", q:"¿En qué año del reinado de Joacim vino Nabucodonosor contra Jerusalén?", a:["En el año tercero","En el año primero","En el año quinto","En el año séptimo"], exp:"El versículo sitúa el sitio en el año tercero de Joacim, rey de Judá. Es la primera deportación (605 a.C.), en la que Daniel fue llevado."},
+ {id:2, ref:"Daniel 1:2", q:"Según el texto, ¿quién entregó a Joacim en manos de Nabucodonosor?", a:["El Señor","Los caldeos","Los príncipes de Judá","El faraón de Egipto"], exp:"El texto dice que “el Señor entregó” a Joacim. Es la frase clave de la clase 1: no venció Babilonia, Dios entregó (natán)."},
+ {id:3, ref:"Daniel 1:3", q:"¿Cómo se llamaba el jefe de los eunucos a quien el rey dio la orden de escoger a los jóvenes?", a:["Aspenaz","Arioc","Melsar","Beltsasar"], exp:"El jefe de los eunucos era Aspenaz. Arioc aparece en Daniel 2 como capitán de la guardia, y Beltsasar es el nombre babilónico de Daniel."},
+ {id:4, ref:"Daniel 1:7", q:"¿Qué nombre babilónico recibió Azarías?", a:["Abed-nego","Sadrac","Mesac","Beltsasar"], exp:"Daniel recibió Beltsasar, Ananías recibió Sadrac, Misael recibió Mesac y Azarías recibió Abed-nego."},
+ {id:5, ref:"Daniel 1:7", q:"¿Qué nombre babilónico recibió Ananías?", a:["Sadrac","Abed-nego","Mesac","Beltsasar"], exp:"Ananías pasó a llamarse Sadrac. El cambio de nombre buscaba cambiar una identidad centrada en Dios por una pagana."},
+ {id:6, ref:"Daniel 1:8", q:"¿Con qué propuso Daniel en su corazón no contaminarse?", a:["Con la porción de la comida del rey y el vino que él bebía","Con la lengua y las letras de los caldeos","Con el nombre que le pusieron","Con el servicio en el palacio"], exp:"Daniel aceptó el idioma, la educación y el cargo, pero rechazó la comida y el vino del rey. Distinguió entre servir en Babilonia y contaminarse espiritualmente."},
+ {id:7, ref:"Daniel 1:9", q:"¿Quién puso a Daniel en gracia y buena voluntad con el jefe de los eunucos?", a:["Dios","El rey Nabucodonosor","Sus tres compañeros","El mayordomo"], exp:"El texto dice que fue Dios. Es una de las tres veces que Dios actúa en Daniel 1: entregó (v.2), dio gracia (v.9) y dio conocimiento (v.17)."},
+ {id:8, ref:"Daniel 1:12", q:"¿Cuántos días de prueba pidió Daniel?", a:["Diez días","Tres días","Treinta días","Siete días"], exp:"Daniel propuso una prueba de diez días con legumbres y agua. Treinta días es el plazo del decreto de Daniel 6."},
+ {id:9, ref:"Daniel 1:12", q:"¿Qué pidió Daniel que les dieran de comer y beber durante la prueba?", a:["Legumbres y agua","Pan y vino mezclado","Frutas y leche","Carne sin sangre y agua"], exp:"Pidió legumbres para comer y agua para beber, en lugar de la comida y el vino del rey."},
+ {id:10, ref:"Daniel 1:20", q:"Al examinarlos, ¿cuántas veces mejores que los magos y astrólogos los halló el rey?", a:["Diez veces","Siete veces","Dos veces","Cien veces"], exp:"El rey los halló diez veces mejores que todos los magos y astrólogos de su reino. La capacitación venía de Dios (v.17)."},
+ {id:11, ref:"Daniel 1:21", q:"¿Hasta cuándo continuó Daniel?", a:["Hasta el año primero del rey Ciro","Hasta la muerte de Nabucodonosor","Hasta el año tercero de Belsasar","Hasta la reconstrucción del templo"], exp:"Daniel continuó hasta el primer año de Ciro. Sobrevivió a varios imperios: los reinos cambian, pero Dios sostiene a su siervo."},
+ {id:12, ref:"Daniel 2:1", q:"¿En qué año de su reinado tuvo Nabucodonosor el sueño de la estatua?", a:["En el segundo año","En el primer año","En el séptimo año","En el año duodécimo"], exp:"Fue en el segundo año de su reinado (aprox. 603–602 a.C.), cuando Daniel era todavía joven."},
+ {id:13, ref:"Daniel 2:10", q:"¿Qué respondieron los caldeos al rey cuando pidió que le dijeran el sueño?", a:["Que no había hombre sobre la tierra que pudiera declarar el asunto","Que necesitaban siete días para consultar las estrellas","Que solo Daniel podía decirlo","Que el sueño venía de los dioses de Babilonia"], exp:"Reconocieron que ningún hombre podía hacerlo. Es la impotencia humana ante el futuro: sabiduría humana sin revelación."},
+ {id:14, ref:"Daniel 2:14", q:"¿Quién era el capitán de la guardia del rey que salió a matar a los sabios?", a:["Arioc","Aspenaz","Melsar","Darío"], exp:"Arioc era el capitán de la guardia. Daniel le habló con prudencia y sabiduría para ganar tiempo."},
+ {id:15, ref:"Daniel 2:18", q:"¿Qué pidió Daniel a sus compañeros que buscaran del Dios del cielo?", a:["Misericordias sobre el misterio","Valor para enfrentar al rey","Una salida del palacio","Venganza contra los caldeos"], exp:"Les pidió que buscaran misericordias del Dios del cielo sobre este misterio. Oración en comunidad antes de actuar."},
+ {id:16, ref:"Daniel 2:19", q:"¿Cómo le fue revelado el secreto a Daniel?", a:["En visión de noche","Por medio de un ángel en el templo","Leyendo los escritos de Jeremías","Por un sueño del rey Ciro"], exp:"El secreto le fue revelado en visión de noche, y enseguida Daniel bendijo al Dios del cielo (vv. 20–23)."},
+ {id:17, ref:"Daniel 2:21", q:"Según el cántico de Daniel, ¿qué hace Dios con los reyes?", a:["Quita reyes y pone reyes","Los deja gobernar a su voluntad","Solo juzga a los reyes de Israel","Les revela el futuro a todos"], exp:"Es el versículo clave del libro: Dios muda los tiempos, quita reyes y pone reyes. La soberanía de Dios sobre la historia."},
+ {id:18, ref:"Daniel 2:32", q:"¿De qué material era el pecho y los brazos de la estatua?", a:["De plata","De oro","De bronce","De hierro"], exp:"Cabeza de oro, pecho y brazos de plata, vientre y muslos de bronce, piernas de hierro y pies de hierro y barro. La plata representa a Medo-Persia."},
+ {id:19, ref:"Daniel 2:34", q:"¿En qué parte hirió la piedra a la estatua?", a:["En los pies","En la cabeza","En el pecho","En las piernas"], exp:"La piedra golpeó los pies de hierro y barro. Indica que el Reino de Dios destruye el sistema de reinos humanos en su fase final."},
+ {id:20, ref:"Daniel 2:35", q:"¿En qué se convirtió la piedra que hirió la imagen?", a:["En un gran monte que llenó toda la tierra","En un templo en Jerusalén","En polvo que se llevó el viento","En una nueva estatua de oro"], exp:"La piedra se hizo un gran monte que llenó la tierra: el Reino eterno del Mesías. Lo que el viento se llevó fueron los restos de la estatua."},
+ {id:21, ref:"Daniel 2:38", q:"¿Qué parte de la estatua dijo Daniel que era Nabucodonosor?", a:["La cabeza de oro","El pecho de plata","Los pies de hierro","La piedra"], exp:"Daniel le dijo: “Tú eres aquella cabeza de oro”. Por eso en Daniel 3 el rey hace una estatua completamente de oro."},
+ {id:22, ref:"Daniel 2:44", q:"¿Cómo describe Daniel el reino que levantará el Dios del cielo?", a:["Un reino que no será jamás destruido","Un reino que durará setenta años","Un reino dividido en dos partes","Un reino entregado a los caldeos"], exp:"Es un reino que nunca será destruido ni dejado a otro pueblo; desmenuzará a los demás reinos y permanecerá para siempre."},
+ {id:23, ref:"Daniel 2:48", q:"¿Qué cargo recibió Daniel después de interpretar el sueño?", a:["Gobernador de la provincia de Babilonia y jefe de los sabios","Capitán de la guardia real","Sumo sacerdote de Babilonia","Tercer señor del reino"], exp:"Fue hecho gobernador de toda la provincia de Babilonia y jefe de los sabios. “Tercer señor del reino” es lo que le ofrece Belsasar en Daniel 5."},
+ {id:24, ref:"Daniel 3:1", q:"¿Cuál era la altura de la estatua de oro de Nabucodonosor?", a:["Sesenta codos","Seis codos","Cien codos","Setenta codos"], exp:"Medía sesenta codos de alto (unos 27 m) y seis de ancho, en el campo de Dura."},
+ {id:25, ref:"Daniel 3:1", q:"¿Dónde levantó Nabucodonosor la estatua de oro?", a:["En el campo de Dura","Junto al río Quebar","En la puerta de Ishtar","En el monte Sion"], exp:"La levantó en el campo de Dura, en la provincia de Babilonia."},
+ {id:26, ref:"Daniel 3:6", q:"¿Cuál era el castigo para quien no se postrara ante la estatua?", a:["Ser echado en un horno de fuego ardiendo","Ser echado en el foso de los leones","Ser desterrado de Babilonia","Perder su cargo y sus bienes"], exp:"El castigo era el horno de fuego. El foso de los leones corresponde al decreto de Darío en Daniel 6."},
+ {id:27, ref:"Daniel 3:17-18", q:"¿Qué dijeron los tres jóvenes que harían aunque Dios no los librara?", a:["No servirían a sus dioses ni adorarían la estatua","Se postrarían una vez para salvar sus vidas","Pedirían tiempo para consultar a Daniel","Huirían a Jerusalén"], exp:"“Y si no…”: su obediencia no dependía del resultado. Dios puede, Dios quiere, y aun si no, no adorarían la imagen."},
+ {id:28, ref:"Daniel 3:19", q:"¿Cuántas veces más de lo acostumbrado ordenó el rey calentar el horno?", a:["Siete veces","Diez veces","Tres veces","Doce veces"], exp:"El rey ordenó calentarlo siete veces más, al punto de que el fuego mató a quienes subieron a los jóvenes (v.22)."},
+ {id:29, ref:"Daniel 3:25", q:"¿Cuántos varones vio el rey paseándose en medio del fuego?", a:["Cuatro","Tres","Dos","Siete"], exp:"Echaron a tres, pero el rey vio cuatro, sueltos y sin daño; el cuarto era semejante a hijo de los dioses. Muchos lo ven como una cristofanía."},
+ {id:30, ref:"Daniel 3:27", q:"¿Qué notaron los sátrapas al examinar a los tres jóvenes?", a:["Que ni siquiera olían a fuego","Que tenían quemaduras leves","Que sus ropas estaban quemadas","Que estaban inconscientes"], exp:"El fuego no tocó sus cuerpos, ni se quemó su cabello ni sus ropas, y ni olor de fuego tenían. Solo se quemaron las cuerdas."},
+ {id:31, ref:"Daniel 4:13", q:"¿Quién descendió del cielo en el sueño del árbol?", a:["Un vigilante y santo","Un león con alas","El Hijo del Hombre","Un profeta de Judá"], exp:"Un vigilante y santo bajó del cielo y ordenó derribar el árbol. No fue accidente: fue un decreto divino."},
+ {id:32, ref:"Daniel 4:25", q:"¿Cuántos tiempos pasarían sobre Nabucodonosor en su humillación?", a:["Siete tiempos","Tres tiempos y medio","Setenta tiempos","Doce tiempos"], exp:"Pasarían siete tiempos hasta que reconociera que el Altísimo gobierna el reino de los hombres."},
+ {id:33, ref:"Daniel 4:29", q:"¿Cuánto tiempo después del sueño se cumplió la sentencia sobre el rey?", a:["Al cabo de doce meses","Esa misma noche","A los diez días","A los siete años"], exp:"Doce meses después, paseando en su palacio, pronunció sus palabras de orgullo. Dios le dio tiempo para arrepentirse."},
+ {id:34, ref:"Daniel 4:30", q:"¿Qué dijo Nabucodonosor que mostró su orgullo?", a:["¿No es esta la gran Babilonia que yo edifiqué?","Yo soy la cabeza de oro de la estatua","Ningún dios puede librar de mi mano","Mi reino durará para siempre"], exp:"Se atribuyó Babilonia, el poder y la gloria. El orgullo es tomar para uno lo que pertenece a Dios (Isaías 42:8)."},
+ {id:35, ref:"Daniel 4:33", q:"¿Qué comía Nabucodonosor durante su humillación?", a:["Hierba como los bueyes","Legumbres y agua","Las sobras de la mesa real","Solo pan y agua"], exp:"Fue echado de entre los hombres y comía hierba como los bueyes; su pelo creció como plumas de águila."},
+ {id:36, ref:"Daniel 4:34", q:"¿Qué hizo Nabucodonosor al final del tiempo, cuando su razón le fue devuelta?", a:["Alzó sus ojos al cielo y bendijo al Altísimo","Mandó construir otra estatua","Ordenó matar a los sabios","Entregó el reino a su hijo"], exp:"La restauración comenzó cuando levantó los ojos al cielo y reconoció quién gobierna."},
+ {id:37, ref:"Daniel 5:1", q:"¿A cuántos de sus príncipes invitó Belsasar a su banquete?", a:["A mil","A cien","A ciento veinte","A setenta"], exp:"Hizo un gran banquete a mil de sus príncipes. Ciento veinte es el número de sátrapas de Darío en Daniel 6."},
+ {id:38, ref:"Daniel 5:2-3", q:"¿Qué objetos mandó traer Belsasar para beber en el banquete?", a:["Los vasos de oro y plata del templo de Jerusalén","Las copas de su padre fabricadas en Egipto","Los tesoros de los medos","Las lámparas del palacio de Nabucodonosor"], exp:"Usó los vasos sagrados que Nabucodonosor había tomado del templo. Esa profanación deliberada desató el juicio."},
+ {id:39, ref:"Daniel 5:5", q:"¿Dónde escribieron los dedos de la mano?", a:["Sobre lo encalado de la pared, delante del candelero","En una tabla de piedra sobre la mesa","En el suelo del salón","En las puertas de la ciudad"], exp:"Los dedos escribían delante del candelero sobre lo encalado de la pared del palacio, a la vista del rey."},
+ {id:40, ref:"Daniel 5:7", q:"¿Qué prometió Belsasar a quien leyera la escritura?", a:["Vestirlo de púrpura, un collar de oro y ser el tercer señor del reino","La mitad de su reino","Gobernar la provincia de Babilonia","Casarse con su hija"], exp:"Ofreció púrpura, collar de oro y el tercer puesto del reino (el tercero porque Belsasar gobernaba junto a su padre)."},
+ {id:41, ref:"Daniel 5:22", q:"¿De qué acusó Daniel a Belsasar antes de interpretar la escritura?", a:["De no haber humillado su corazón aunque sabía lo que pasó a Nabucodonosor","De haber matado a los sabios de Babilonia","De haber aliado a Babilonia con Persia","De no haber reconstruido el templo"], exp:"Daniel predicó antes de interpretar: Belsasar conocía la historia de Nabucodonosor y aun así se enalteció."},
+ {id:42, ref:"Daniel 5:27", q:"¿Qué significa TEKEL según Daniel?", a:["Pesado has sido en balanza, y fuiste hallado falto","Contó Dios tu reino y le ha puesto fin","Tu reino fue roto y dado a medos y persas","Tus días serán prolongados"], exp:"MENE: contado; TEKEL: pesado y hallado falto; PERES: dividido y dado a medos y persas."},
+ {id:43, ref:"Daniel 5:31", q:"¿Qué edad tenía Darío de Media cuando tomó el reino?", a:["Sesenta y dos años","Setenta años","Cuarenta años","Ochenta años"], exp:"Darío tomó el reino a los sesenta y dos años, la misma noche en que murió Belsasar (v.30)."},
+ {id:44, ref:"Daniel 6:1", q:"¿Cuántos sátrapas constituyó Darío sobre el reino?", a:["Ciento veinte","Mil","Setenta","Doce"], exp:"Puso ciento veinte sátrapas y sobre ellos tres gobernadores, de los cuales Daniel era uno."},
+ {id:45, ref:"Daniel 6:3", q:"¿Por qué Daniel era superior a los demás gobernadores?", a:["Porque había en él un espíritu superior","Porque era pariente del rey","Porque sabía la lengua de los medos","Porque era el mayor en edad"], exp:"Había en él un espíritu superior; sus enemigos no hallaron en él ni vicio ni falta (v.4). Integridad, no solo inteligencia."},
+ {id:46, ref:"Daniel 6:7", q:"¿Por cuántos días prohibía el decreto hacer peticiones a otro que no fuera el rey?", a:["Treinta días","Diez días","Siete días","Cuarenta días"], exp:"El decreto duraba treinta días. Los diez días son la prueba de la comida en Daniel 1."},
+ {id:47, ref:"Daniel 6:10", q:"¿Hacia dónde estaban abiertas las ventanas de la cámara de Daniel?", a:["Hacia Jerusalén","Hacia el palacio del rey","Hacia el oriente, donde sale el sol","Hacia el río Éufrates"], exp:"Oraba con las ventanas abiertas hacia Jerusalén, tres veces al día, dando gracias como lo solía hacer antes."},
+ {id:48, ref:"Daniel 6:10", q:"¿Cuántas veces al día oraba Daniel?", a:["Tres veces","Siete veces","Dos veces","Una vez"], exp:"Tres veces al día, y como lo hacía antes: la oración era su estilo de vida, no una reacción a la crisis."},
+ {id:49, ref:"Daniel 6:17", q:"¿Con qué se selló la piedra puesta sobre la puerta del foso?", a:["Con el anillo del rey y el de sus príncipes","Con cadenas de bronce","Con el sello de los caldeos","Con cal y ladrillo"], exp:"Fue sellada con el anillo del rey y de sus príncipes, para que nada se alterara. Paralelo con el sepulcro de Cristo (Mateo 27:66)."},
+ {id:50, ref:"Daniel 6:22", q:"Según Daniel, ¿qué hizo Dios en el foso?", a:["Envió su ángel, que cerró la boca de los leones","Hizo que los leones durmieran de hambre","Sacó a Daniel por una salida oculta","Mató a los leones con fuego"], exp:"Dios envió su ángel y cerró la boca de los leones porque Daniel fue hallado inocente. No quitó el foso, limitó su poder."},
+ {id:51, ref:"Daniel 6:24", q:"¿Qué pasó con los hombres que acusaron a Daniel?", a:["Fueron echados al foso y los leones los dominaron antes de llegar al fondo","Fueron desterrados a Persia","Fueron perdonados por Daniel","Fueron echados al horno de fuego"], exp:"Ellos, sus hijos y sus mujeres fueron echados al foso, y los leones se apoderaron de ellos antes de que tocaran el fondo."},
+ {id:52, ref:"Daniel 6:28", q:"¿Durante el reinado de quiénes prosperó Daniel?", a:["De Darío y de Ciro el persa","De Nabucodonosor y Belsasar","De Ciro y Artajerjes","De Darío y Alejandro"], exp:"Daniel prosperó durante el reinado de Darío y de Ciro el persa, cumpliendo lo dicho en Daniel 1:21."},
+ {id:53, ref:"Jeremías 25:9", q:"¿Cómo llama Dios a Nabucodonosor en este versículo?", a:["Mi siervo","Mi enemigo","Mi ungido","Vara de mi ira"], exp:"Dios lo llama “mi siervo”: Nabucodonosor fue instrumento del juicio de Dios sobre Judá, sin dejar de ser pagano."},
+ {id:54, ref:"Jeremías 29:10", q:"¿Cuántos años debían cumplirse en Babilonia antes de que Dios hiciera volver al pueblo?", a:["Setenta años","Cuarenta años","Siete años","Cien años"], exp:"Dios prometió visitar a su pueblo al cumplirse setenta años en Babilonia. La soberanía de Dios fija incluso la duración del exilio."},
+ {id:55, ref:"Mateo 24:15", q:"¿Qué menciona Jesús que habló el profeta Daniel?", a:["La abominación desoladora","La piedra cortada sin manos","El árbol derribado","La escritura en la pared"], exp:"Jesús cita la abominación desoladora “de que habló el profeta Daniel”, lo cual confirma su autenticidad como profeta."},
+ {id:56, ref:"Hechos 5:29", q:"¿Qué respondieron Pedro y los apóstoles al concilio?", a:["Es necesario obedecer a Dios antes que a los hombres","Toda autoridad viene de Dios","Daremos al César lo que es del César","Oraremos por los que nos persiguen"], exp:"Es el límite de la obediencia al gobierno: cuando exige desobedecer a Dios, como en Daniel 3 y 6, se obedece a Dios."},
+ {id:57, ref:"Proverbios 16:18", q:"¿Qué viene antes del quebrantamiento según este proverbio?", a:["La soberbia","La pobreza","La ignorancia","La pereza"], exp:"Antes del quebrantamiento es la soberbia, y antes de la caída la altivez. Se cumple en Nabucodonosor (Dn 4) y en Belsasar (Dn 5)."},
+ {id:58, ref:"Isaías 43:2", q:"¿Qué promete Dios a su pueblo cuando pase por el fuego?", a:["Que no se quemará ni la llama arderá en él","Que el fuego se apagará antes de que llegue","Que nunca tendrá que pasar por el fuego","Que será vengado de sus enemigos"], exp:"Dios no promete evitar el fuego sino su presencia en él. Es el patrón de Daniel 3."},
+ {id:59, ref:"Salmo 118:22", q:"¿En qué vino a ser la piedra que desecharon los edificadores?", a:["En cabeza del ángulo","En cimiento del templo","En altar de sacrificio","En monte de Sion"], exp:"La piedra desechada vino a ser cabeza del ángulo. Se aplica a Cristo, la piedra de Daniel 2 (ver también 1 Pedro 2:6–8)."},
+ {id:60, ref:"Génesis 11:4", q:"¿Qué quisieron hacer para sí los constructores de Babel?", a:["Hacerse un nombre","Buscar a Dios en el cielo","Proteger la ciudad del diluvio","Honrar a Noé"], exp:"Querían hacerse un nombre: Babel representa a la humanidad organizada sin Dios, la raíz de lo que Babilonia simboliza."},
+ {id:61, ref:"Marcos 15:10", q:"¿Por qué sabía Pilato que los principales sacerdotes habían entregado a Jesús?", a:["Por envidia","Por miedo a Roma","Por dinero","Por orden del César"], exp:"Lo entregaron por envidia, igual que los gobernadores con Daniel. Es uno de los paralelos entre Daniel 6 y Cristo."},
+ {id:62, ref:"Lamentaciones 3:37", q:"¿Qué pregunta hace este versículo?", a:["¿Quién dirá que sucedió algo que el Señor no mandó?","¿Hasta cuándo, oh Señor, nos olvidarás?","¿Quién podrá contar los días de Babilonia?","¿Por qué prosperan los impíos?"], exp:"El versículo afirma que nada ocurre sin que el Señor lo haya mandado. Se usó en la clase 2 para confirmar la soberanía de Dios en el exilio."},
+ {id:63, ref:"Jeremías 51:11", q:"¿El espíritu de quiénes despertó Jehová contra Babilonia?", a:["De los reyes de Media","De los reyes de Egipto","De los príncipes de Judá","De los caldeos"], exp:"Dios despertó a los reyes de Media para destruir Babilonia. Se cumple en Daniel 5:31, cuando Darío de Media toma el reino."},
+ {id:64, ref:"Isaías 40:8", q:"Según este versículo, ¿qué permanece para siempre?", a:["La palabra del Dios nuestro","La hierba y la flor","Los reinos de la tierra","El templo de Jerusalén"], exp:"La hierba se seca y la flor se marchita, pero la Palabra de Dios permanece. El hombre intenta eternizar lo que Dios declaró temporal (Daniel 3)."},
+ {id:65, ref:"Santiago 1:5", q:"¿Qué debe pedir a Dios quien tenga falta de ella?", a:["Sabiduría","Riqueza","Paciencia","Fuerza"], exp:"Si alguno tiene falta de sabiduría, pídala a Dios. Ilustra el principio de Daniel 2: la oración precede a la dirección de Dios."},
+ {id:66, ref:"Salmo 37:5", q:"¿Qué manda hacer este salmo con nuestro camino?", a:["Encomendarlo a Jehová y confiar en Él","Enderezarlo con nuestras fuerzas","Esconderlo de los enemigos","Medirlo con la Ley"], exp:"Encomienda a Jehová tu camino, confía en Él, y Él hará. Así actuó Daniel en el foso: no peleó, confió."},
+ {id:67, ref:"Filipenses 4:7", q:"¿Qué guardará nuestros corazones y pensamientos en Cristo Jesús?", a:["La paz de Dios","La ley de Dios","El temor de Dios","La fe de los santos"], exp:"La paz de Dios, que sobrepasa todo entendimiento, guarda el corazón. Daniel descansó en el foso mientras el rey no pudo dormir."},
+ {id:68, ref:"2 Timoteo 3:12", q:"¿Qué padecerán todos los que quieren vivir piadosamente en Cristo Jesús?", a:["Persecución","Pobreza","Enfermedad","Soledad"], exp:"Padecerán persecución. La integridad de Daniel despertó la envidia y oposición de los otros gobernadores."}
+];
+
+// Quiz de las diapositivas: a[0] es la correcta (se baraja al mostrar)
+const SLIDES_BANK = [
+// ---- Panorama y clase 1
+{id:1,cat:"Clase 1",q:"Según la clase, ¿qué significa el nombre hebreo de Daniel?",a:["Dios es mi juez","Dios es mi fortaleza","Dios es misericordioso","Que Bel proteja su vida"],exp:"Daniel significa “Dios es mi juez”. “Que Bel proteja su vida” es el significado de Beltsasar, el nombre que le puso Babilonia."},
+{id:2,cat:"Clase 1",q:"¿En qué fechas ubica la clase la escritura del libro?",a:["Aprox. 536–530 a.C.","Aprox. 605–600 a.C.","Aprox. 586–580 a.C.","Aprox. 168–164 a.C."],exp:"La ficha del libro da aprox. 536–530 a.C., al final de la vida de Daniel. El 605 es el año en que fue deportado."},
+{id:3,cat:"Clase 1",q:"¿Cuál es el versículo clave de todo el libro?",a:["Daniel 2:21","Daniel 4:35","Daniel 6:10","Daniel 1:8"],exp:"Daniel 2:21: Dios muda los tiempos, quita reyes y pone reyes. Daniel 4:35 es el texto clave de la clase 4, no del libro."},
+{id:4,cat:"Clase 1",q:"¿Qué porción del libro está escrita en arameo?",a:["Daniel 2:4 – 7:28","Daniel 1:1 – 2:3","Daniel 8 – 12","Daniel 3 – 6 solamente"],exp:"El arameo va de 2:4 a 7:28. El comienzo (1:1–2:3) y el final (8–12) están en hebreo."},
+{id:5,cat:"Clase 1",q:"Si un pasaje de Daniel está en arameo, ¿en qué pone el énfasis según la clase?",a:["En los reinos gentiles y la soberanía de Dios","En el destino de Israel y Jerusalén","En la iglesia y el evangelio","En la ley ceremonial del templo"],exp:"El bloque arameo resalta a las naciones y la soberanía de Dios sobre ellas; el hebreo, el destino de Israel, Jerusalén y su programa futuro."},
+{id:6,cat:"Clase 1",q:"¿Qué evidencia de Cristo presenta la clase sobre la autenticidad de Daniel?",a:["Jesús lo reconoce como profeta en Mateo 24:15","Jesús lee el libro en la sinagoga en Lucas 4","Jesús cita la estatua en Juan 3","Jesús menciona el foso en Marcos 13"],exp:"En Mateo 24:15 Jesús habla de “el profeta Daniel”. En Lucas 4 lo que lee es Isaías 61."},
+{id:7,cat:"Clase 1",q:"¿Cuál es la regla del principio histórico‑gramatical?",a:["Interpretación primero, aplicación después","Aplicación primero, interpretación después","Buscar siempre el sentido espiritual oculto","Interpretar cada símbolo sin mirar el contexto"],exp:"Primero se pregunta qué quiso comunicar Dios mediante Daniel, y solo después qué significa para mí (2 Timoteo 2:15)."},
+{id:8,cat:"Clase 1",q:"“El símbolo es figurado, pero el cumplimiento es literal.” ¿A qué principio corresponde?",a:["Reconocer el lenguaje simbólico sin espiritualizarlo","Perspectiva telescópica","Diferenciar Israel y la iglesia","Interpretación histórico‑gramatical"],exp:"Es el principio 2. Ejemplo: las bestias de Daniel 7:3 son símbolos, pero representan reinos reales (7:17)."},
+{id:9,cat:"Clase 1",q:"Daniel 11 habla de Antíoco Epífanes y también del anticristo final. ¿Qué principio ilustra?",a:["La perspectiva telescópica","El lenguaje simbólico","La interpretación histórico‑gramatical","La distinción entre Israel y la iglesia"],exp:"En la perspectiva telescópica, una misma visión muestra un evento cercano (Antíoco) y otro lejano (el anticristo)."},
+{id:10,cat:"Clase 1",q:"¿Con qué pasaje compara la clase Isaías 61 para ilustrar la primera y segunda venida?",a:["Lucas 4:17–21","Mateo 24:15","Romanos 11:25–26","Hebreos 1:1–2"],exp:"En Lucas 4:17–21 Jesús lee Isaías 61 y se detiene antes de la parte que corresponde a su segunda venida."},
+{id:11,cat:"Clase 1",q:"Según el principio 4, ¿de qué trata principalmente Daniel 9?",a:["Jerusalén, Israel, el pacto y la restauración nacional","La iglesia y su misión","La caída de Babilonia","Los cuatro imperios de la estatua"],exp:"El principio de diferenciar Israel y la iglesia se ilustra con Daniel 9, que trata del pueblo de Israel y Jerusalén."},
+{id:12,cat:"Clase 1",q:"¿Qué ocurrió en el año 586 a.C.?",a:["La destrucción del templo de Salomón","La deportación de Daniel","La caída de Babilonia","La deportación de Ezequiel"],exp:"Las tres deportaciones: 605 (Daniel), 597 (Ezequiel) y 586 a.C. (destrucción del templo)."},
+{id:13,cat:"Clase 1",q:"¿Qué profeta fue deportado en el 597 a.C.?",a:["Ezequiel","Jeremías","Daniel","Isaías"],exp:"En 597 a.C. fue deportado Ezequiel. Daniel ya había sido llevado en 605 a.C."},
+{id:14,cat:"Clase 1",q:"¿Qué textos usa la clase como advertencias de que Dios dispersaría a su pueblo?",a:["Levítico 26:33 y Deuteronomio 28:64","Jeremías 25:9 y 29:10","Salmo 103:19 e Isaías 46:9–10","Romanos 13:1 y Hechos 5:29"],exp:"Levítico 26:33 y Deuteronomio 28:64 advertían dispersión entre las naciones si el pueblo desobedecía el pacto."},
+{id:15,cat:"Clase 1",q:"¿Qué capítulo cita la clase sobre la corrupción de sacerdotes y líderes?",a:["Ezequiel 22","Jeremías 25","Levítico 26","Isaías 46"],exp:"Ezequiel 22 describe cómo los líderes pervirtieron la justicia, oprimieron al pobre y abandonaron la Ley."},
+{id:16,cat:"Clase 1",q:"¿Cuál de estos NO es uno de los tres grandes temas doctrinales de Daniel?",a:["La reconstrucción del templo","La soberanía de Dios","El Reino mesiánico","La perseverancia del remanente"],exp:"Los tres temas son la soberanía de Dios (4:35), el Reino mesiánico (7:13–14) y la perseverancia del remanente (Romanos 11:5)."},
+{id:17,cat:"Clase 1",q:"En la “ruta de Daniel”, ¿qué capítulo resume: tribulación → liberación → resurrección → consumación?",a:["Daniel 12","Daniel 9","Daniel 7","Daniel 2"],exp:"Dn 2: reinos humanos → Reino de Dios. Dn 7: imperios → Hijo del Hombre. Dn 9: Israel → Mesías. Dn 12: tribulación → resurrección."},
+{id:18,cat:"Clase 1",q:"Según la aplicación de la clase 1, ¿cómo debe vivir el creyente mientras espera el Reino?",a:["Con fidelidad","Apartado de toda sociedad","Calculando la fecha del fin","Esperando que Babilonia mejore"],exp:"¿Quién gobierna? Dios. ¿Hacia dónde va la historia? Al Reino del Mesías. ¿Cómo vivir? Con fidelidad. La esperanza no está en que Babilonia mejore."},
+{id:19,cat:"Clase 1",q:"¿Cómo llama Dios a Nabucodonosor en Jeremías 25:9, según la clase?",a:["Mi siervo","Mi enemigo","Mi ungido","Hijo de perdición"],exp:"Dios lo llama “mi siervo”: lo usó como instrumento de su juicio sobre Judá, aunque era pagano."},
+{id:20,cat:"Clase 1",q:"¿Qué dos partes tiene el libro según su contenido?",a:["Caps. 1–6 historias; caps. 7–12 visiones","Caps. 1–2 historias; caps. 3–12 visiones","Caps. 1–7 en hebreo; caps. 8–12 en arameo","Caps. 1–9 historias; caps. 10–12 visiones"],exp:"Daniel 1–6: la historia del profeta (fidelidad en Babilonia). Daniel 7–12: las visiones proféticas (el programa futuro de Dios)."},
+// ---- Clase 2: Daniel 1
+{id:21,cat:"Clase 2",q:"¿Qué rey de Judá fue entregado en manos de Nabucodonosor según Daniel 1:1–2?",a:["Joacim","Sedequías","Josías","Ezequías"],exp:"Fue en el año tercero de Joacim, rey de Judá. “Y el Señor entregó en sus manos a Joacim.”"},
+{id:22,cat:"Clase 2",q:"¿Qué significa la palabra hebrea natán, clave en Daniel 1:2?",a:["Entregar, conceder, poner bajo autoridad","Contar y poner fin","Misterio revelado","Pesar en balanza"],exp:"Natán es “entregar”. La frase “el Señor entregó” muestra que no venció Babilonia: Dios entregó."},
+{id:23,cat:"Clase 2",q:"Según la clase, ¿qué buscaba conquistar Babilonia además de territorios?",a:["La mente, la identidad, los valores y la adoración","El oro, los esclavos, las armas y el templo","El idioma, la comida, el vestido y la música","Los reyes, los sacerdotes, los profetas y el pueblo"],exp:"Babilonia no solo conquistaba territorios: buscaba conquistar la mente, la identidad, los valores y la adoración."},
+{id:24,cat:"Clase 2",q:"¿Cuáles son los tres cambios de la estrategia de Babilonia (1:3–7)?",a:["Ubicación, educación y nombre","Nombre, comida y religión","Idioma, vestido y esposa","Cargo, sueldo y casa"],exp:"1) Cambiar su ubicación (de Jerusalén a Babilonia), 2) su educación (letras y lengua caldea) y 3) su nombre."},
+{id:25,cat:"Clase 2",q:"Desde Génesis, ¿qué representa Babel según la clase?",a:["La humanidad organizada sin Dios","La primera ciudad de refugio","El lugar donde Dios hizo su pacto","El centro del culto verdadero"],exp:"Génesis 11:4, “hagámonos un nombre”: Babel representa la autosuficiencia humana y la rebelión."},
+{id:26,cat:"Clase 2",q:"¿Qué principio acompaña a “cambiar su educación”?",a:["Una cultura cambia primero la manera de pensar antes de cambiar la manera de vivir","La educación babilónica era pecado en sí misma","Un creyente no debe estudiar en otra cultura","El idioma extranjero contamina la fe"],exp:"La batalla comienza en la mente (Romanos 12:2). Daniel sí aceptó la educación, pero sin cambiar su cosmovisión."},
+{id:27,cat:"Clase 2",q:"¿Qué significa Beltsasar, el nombre babilónico de Daniel?",a:["Que Bel proteja su vida","Bel es mi juez","Príncipe de Babilonia","Siervo del rey"],exp:"Pasaron de “Dios es mi juez” a “que Bel proteja su vida”: de una identidad teológica a una pagana."},
+{id:28,cat:"Clase 2",q:"¿Qué aceptó Daniel en Babilonia?",a:["El idioma, la educación y el cargo administrativo","La comida y el vino del rey","El culto a los dioses de Babilonia","Nada de lo que le ofrecieron"],exp:"Aceptó idioma, educación y cargo, pero rechazó la contaminación espiritual."},
+{id:29,cat:"Clase 2",q:"¿Cuál de estas NO es una de las posibles razones por las que Daniel rechazó la comida?",a:["Que la comida era de mala calidad","La relación con la idolatría","La violación ceremonial","Ser señal de dependencia del rey"],exp:"Las tres posibles razones de la clase son: idolatría, violación ceremonial y dependencia del rey."},
+{id:30,cat:"Clase 2",q:"Según la clase, ¿qué es algo que NO sabemos sobre la comida?",a:["Si el problema principal era la Ley o una cuestión de identidad y lealtad","Si la comida provenía de la mesa del rey","Si Daniel pidió permiso","Si Daniel propuso una alternativa"],exp:"Sabemos que venía de la mesa del rey, que pidió permiso y propuso una alternativa. No sabemos cuál era exactamente el problema."},
+{id:31,cat:"Clase 2",q:"¿Qué implica la palabra “propuso” en Daniel 1:8?",a:["Resolución interna, decisión previa y convicción establecida","Una reacción rápida ante la presión","Una negociación con el rey","Una duda que resolvió con el tiempo"],exp:"Daniel decidió antes de enfrentar la prueba: las convicciones se forman antes de las crisis, no durante ellas."},
+{id:32,cat:"Clase 2",q:"¿En qué tres versículos de Daniel 1 aparece Dios como quien actúa?",a:["v.2 entregó, v.9 dio gracia, v.17 dio conocimiento","v.1 sitió, v.8 propuso, v.21 continuó","v.3 escogió, v.7 nombró, v.15 engordó","v.4 enseñó, v.12 probó, v.20 examinó"],exp:"Dios entregó (v.2), dio gracia (v.9) y dio conocimiento (v.17). Conclusión: no es Daniel el héroe; Dios es el protagonista."},
+{id:33,cat:"Clase 2",q:"¿Qué enseña la clase con la frase “fidelidad con sabiduría”?",a:["La fidelidad no siempre es confrontación; muchas veces es sabiduría, respeto y convicción","Hay que negociar las convicciones para evitar problemas","El creyente debe rebelarse abiertamente contra el sistema","La sabiduría consiste en obedecer todo lo que manda el rey"],exp:"Daniel no dijo “¡nunca obedeceré a Babilonia!”, dijo “pruébame”. No negoció su convicción, buscó una forma sabia de vivirla."},
+{id:34,cat:"Clase 2",q:"¿Qué interpretación de los diez días rechaza la clase?",a:["Que si obedeces a Dios serás automáticamente más saludable","Que Dios sostuvo a quienes fueron fieles","Que Daniel pidió una prueba con respeto","Que el resultado honró a Dios"],exp:"El punto no es la salud automática, sino que Dios sostuvo a quienes permanecieron fieles a Él."},
+{id:35,cat:"Clase 2",q:"Según Daniel 1:21 y la clase, ¿a qué sucesión de reyes sobrevivió Daniel?",a:["Nabucodonosor → Belsasar → Darío → Ciro","Nabucodonosor → Ciro → Darío → Belsasar","Joacim → Nabucodonosor → Belsasar → Darío","Belsasar → Nabucodonosor → Ciro → Darío"],exp:"Daniel continuó hasta el primer año de Ciro. Mientras los imperios cambian, Dios lo sostiene."},
+{id:36,cat:"Clase 2",q:"Completa: Daniel sirve al rey, pero…",a:["adora solamente a Dios","adopta los valores del imperio","se niega a trabajar para él","esconde que es judío"],exp:"Vivir entre dos realidades: vive en Babilonia pero pertenece a Dios; aprende la cultura pero conserva su cosmovisión; sirve al rey pero adora solo a Dios."},
+{id:37,cat:"Clase 2",q:"¿Qué recuerda la cristología de la clase 2?",a:["Que nuestra fidelidad no es la base de nuestra salvación","Que Daniel fue perfectamente fiel y por eso se salvó","Que la fidelidad se hereda de los padres","Que Cristo no aparece en Daniel 1"],exp:"Daniel: fidelidad en Babilonia. Cristo: fidelidad perfecta. Nosotros: vivimos fielmente por la gracia de Dios."},
+{id:38,cat:"Clase 2",q:"¿Qué texto usa la clase para confirmar la soberanía de Dios con “setenta años”?",a:["Jeremías 29:10","Lamentaciones 3:37","Levítico 26:33","Isaías 44:7"],exp:"Jeremías 29:10: cuando se cumplan setenta años en Babilonia, Dios hará volver a su pueblo."},
+{id:39,cat:"Clase 2",q:"¿Cuál NO es una de las conclusiones de Daniel 1?",a:["El éxito demuestra la aprobación de Dios","La identidad vale más que la comodidad","La fidelidad comienza con una decisión","Los imperios pasan; Dios permanece"],exp:"Las conclusiones: Dios nunca perdió el control; la identidad vale más que la comodidad; la fidelidad comienza con una decisión; la obediencia honra a Dios aunque el resultado no sea inmediato; los imperios pasan."},
+// ---- Clase 3: Daniel 2 y la estatua
+{id:40,cat:"Clase 3",q:"¿En qué fecha ubica la clase el sueño de Daniel 2?",a:["603–602 a.C.","605 a.C.","586 a.C.","539 a.C."],exp:"Aprox. 603–602 a.C. Daniel tenía unos 18–20 años."},
+{id:41,cat:"Clase 3",q:"¿Qué edad aproximada tenía Daniel en Daniel 2?",a:["18–20 años","12–14 años","Unos 40 años","Más de 80 años"],exp:"Tenía unos 18–20 años. En Daniel 6 tendrá más de 80."},
+{id:42,cat:"Clase 3",q:"En tiempos de Daniel 2, ¿cuál era la situación del templo?",a:["Seguía en pie, pero sería destruido pocos años después","Ya había sido destruido","Estaba siendo reconstruido","Había sido convertido en templo de Bel"],exp:"Jerusalén ya había sido conquistada, pero el templo seguía en pie; fue destruido en 586 a.C."},
+{id:43,cat:"Clase 3",q:"Según Hebreos 1:1–2, tal como lo explica la clase, ¿cómo habla Dios hoy?",a:["Por medio de Cristo y las Escrituras","Principalmente por sueños","Por la astrología","Por visiones a los reyes"],exp:"En el AT habló por sueños, visiones y profetas; la revelación progresiva culmina en Jesucristo."},
+{id:44,cat:"Clase 3",q:"En la estructura de Daniel 2, ¿qué ocurre en los versículos 14–23?",a:["La oración de Daniel","La estatua","La interpretación","La exaltación de Daniel"],exp:"Sueño (1–13), oración (14–23), revelación (24–30), estatua (31–35), interpretación (36–45), exaltación (46–49)."},
+{id:45,cat:"Clase 3",q:"Babilonia tenía astrología, magia y sabiduría humana. ¿Qué le faltaba?",a:["Revelación","Riqueza","Poder militar","Sacerdotes"],exp:"“No hay hombre sobre la tierra que pueda declarar el asunto del rey” (2:10). Tenían sabiduría humana, pero no revelación."},
+{id:46,cat:"Clase 3",q:"¿Cuál NO es una de las cinco características de la oración de Daniel?",a:["Exige una recompensa al rey","Busca a sus hermanos","Espera la respuesta","Adora antes de actuar"],exp:"Busca a sus hermanos, pide misericordia, espera la respuesta, adora antes de actuar y da toda la gloria a Dios."},
+{id:47,cat:"Clase 3",q:"¿Qué significa raz (misterio) en Daniel 2:28?",a:["Algo imposible de descubrir sin revelación divina","Algo que permanecerá oculto para siempre","Un sueño sin interpretación","Un secreto de los magos caldeos"],exp:"En Daniel no significa algo oculto para siempre. Los misterios siempre son verdades reveladas por Dios (Ef 3, Col 1, Ro 16)."},
+{id:48,cat:"Clase 3",q:"Al descender en la estatua, ¿qué pasa con los metales?",a:["Disminuye su valor, pero aumenta su dureza","Aumenta su valor y su dureza","Disminuyen el valor y la dureza","Todos tienen el mismo valor"],exp:"Mientras más desciende, menor es el valor; pero aumenta la dureza."},
+{id:49,cat:"Clase 3",q:"¿Qué fechas da la clase para la cabeza de oro?",a:["605–539 a.C.","539–331 a.C.","331–168 a.C.","168 a.C.–476 d.C."],exp:"Oro: Babilonia 605–539. Plata: Medo‑Persia 539–331. Bronce: Grecia 331–168. Hierro: Roma 168 a.C.–476 d.C."},
+{id:50,cat:"Clase 3",q:"¿Qué imperio abarca 539–331 a.C. en la estatua?",a:["Medo‑Persia, pecho y brazos de plata","Grecia, vientre y muslos de bronce","Babilonia, cabeza de oro","Roma, piernas de hierro"],exp:"Medo‑Persia comienza en 539 a.C., con la caída de Babilonia en Daniel 5, y termina con Alejandro en 331 a.C."},
+{id:51,cat:"Clase 3",q:"¿Qué imperio representa el vientre y los muslos de bronce, y en qué fechas?",a:["Grecia, 331–168 a.C.","Roma, 168 a.C.–476 d.C.","Medo‑Persia, 539–331 a.C.","Babilonia, 605–539 a.C."],exp:"El bronce es el imperio griego (macedonio), liderado por Alejandro Magno."},
+{id:52,cat:"Clase 3",q:"¿Qué evidencias históricas del esplendor de Babilonia menciona la clase?",a:["La Puerta de Ishtar, los Jardines Colgantes y templos revestidos de oro","Las pirámides, la Esfinge y el Nilo","El Partenón, la Acrópolis y el ágora","El Coliseo, los acueductos y la Vía Apia"],exp:"El oro representa esplendor, riqueza, grandeza arquitectónica y autoridad absoluta del rey (Jeremías 51:7)."},
+{id:53,cat:"Clase 3",q:"¿Qué representa la plata según la clase?",a:["Un reino menos esplendoroso, pero más fuerte administrativamente","El reino más rico de todos","Un reino de guerra y conquista rápida","Un reino dividido y frágil"],exp:"La plata es menos valiosa que el oro pero más resistente. Representa la unión de medos y persas."},
+{id:54,cat:"Clase 3",q:"¿Por qué el tercer imperio es de bronce?",a:["Porque era el metal de armas, armaduras, cascos y escudos: la guerra","Porque era el metal más valioso","Porque era el metal de los templos","Porque se rompía fácilmente"],exp:"El bronce representa la guerra. Alejandro Magno conquistó casi todo el mundo conocido en unos diez años y nunca perdió una batalla."},
+{id:55,cat:"Clase 3",q:"¿En cuánto tiempo conquistó Alejandro Magno casi todo el mundo conocido, según la clase?",a:["En aproximadamente diez años","En aproximadamente setenta años","En aproximadamente tres años","En aproximadamente cuarenta años"],exp:"Unos diez años, sin perder una batalla. Por eso Grecia se asocia a rapidez y dominio global."},
+{id:56,cat:"Clase 3",q:"¿Cuál de estas NO es una característica de Roma, las piernas de hierro?",a:["Los Jardines Colgantes","El derecho romano","La red de caminos","La Pax Romana"],exp:"Roma: derecho romano, red de caminos, Pax Romana y ejército profesional. Los Jardines Colgantes son de Babilonia."},
+{id:57,cat:"Clase 3",q:"¿Qué representan los pies de hierro mezclado con barro?",a:["Unidad aparente, división interna, inestabilidad y falta de cohesión","Un imperio unido y más fuerte que Roma","El Reino de Dios mezclado con los reinos humanos","La unión de medos y persas"],exp:"El hierro (fortaleza) mezclado con el barro (fragilidad): reinos que no logran unirse."},
+{id:58,cat:"Clase 3",q:"¿Qué significa que la piedra fue cortada “sin manos”?",a:["Que su origen es divino, no humano","Que era una piedra muy pequeña","Que la cortaron los ángeles del rey","Que representaba a Daniel"],exp:"“Sin manos” significa origen divino. La piedra es Cristo (Salmo 118:22)."},
+{id:59,cat:"Clase 3",q:"¿Por qué la piedra golpea los pies de la estatua?",a:["Porque destruye el sistema completo de los imperios humanos en su fase final","Porque los pies eran de oro","Porque Babilonia era el imperio más débil","Porque así cayó Babilonia en Daniel 5"],exp:"Golpea la etapa final y cae toda la estatua: el Reino de Dios reemplaza a todos los reinos humanos."},
+{id:60,cat:"Clase 3",q:"¿Qué ocurre con la piedra después de derribar la estatua?",a:["Se convierte en un monte","Se rompe junto con la estatua","Se convierte en una nueva estatua","Se la lleva el viento"],exp:"La piedra se convierte en un gran monte que llena la tierra: el Reino eterno del Mesías. Es uno de los datos importantes de la clase."},
+{id:61,cat:"Clase 3",q:"Según los datos importantes, ¿a qué responde Daniel 2?",a:["A la ansiedad del poder","A la pobreza de Judá","A la rebelión de los caldeos","Al hambre en Babilonia"],exp:"El rey estaba inquieto por el futuro de su reino. El capítulo muestra que Dios controla lo que viene."},
+{id:62,cat:"Clase 3",q:"¿Qué introduce Daniel 2 según Lucas 21:24?",a:["Los tiempos de los gentiles","Las setenta semanas","El milenio","La destrucción del templo"],exp:"Una de las razones de su importancia: introduce el programa de los tiempos de los gentiles."},
+{id:63,cat:"Clase 3",q:"¿Qué texto acompaña el principio “la oración precede a la dirección de Dios”?",a:["Santiago 1:5","1 Corintios 1:20–25","Efesios 2:20","Apocalipsis 11:15"],exp:"Santiago 1:5: si alguno tiene falta de sabiduría, pídala a Dios."},
+{id:64,cat:"Clase 3",q:"Después de oír la interpretación, ¿Nabucodonosor se convirtió?",a:["No; reconoce la superioridad de Dios, pero aún no es creyente","Sí, se convirtió inmediatamente","Sí, y destruyó a los ídolos","No, y mandó matar a Daniel"],exp:"Dice “vuestro Dios es Dios de dioses”, pero solo reconoce superioridad. Su conversión vendrá mucho después (Daniel 4)."},
+{id:65,cat:"Clase 3",q:"¿Qué recibe Daniel después de interpretar el sueño?",a:["Autoridad, riqueza y reconocimiento","Libertad para volver a Jerusalén","Un nuevo nombre","El trono de Babilonia"],exp:"Recibe autoridad, riqueza y reconocimiento, pero continúa siendo siervo de Dios."},
+{id:66,cat:"Clase 3",q:"¿Cuál NO es una conclusión práctica de Daniel 2?",a:["Busca primero la aprobación del rey","Ora antes de actuar","Glorifica a Dios en el éxito","Invierte en el Reino eterno, no en lo temporal"],exp:"Conclusiones: ora antes de actuar, descansa en la soberanía de Dios, glorifica a Dios en el éxito, invierte en el Reino eterno, vive mirando el plan de Dios."},
+// ---- Clase 4: Daniel 3–4
+{id:67,cat:"Clase 4",q:"¿Cuál es el título de la clase de Daniel 3–4?",a:["El conflicto entre la gloria del hombre y la gloria de Dios","Fidelidad espiritual en medio de Babilonia","Los reinos del hombre y la llegada del Reino eterno","Juicio y preservación"],exp:"“Fidelidad en Babilonia” es la clase 2, “Los reinos del hombre” la clase 3, y juicio y preservación la clase 5."},
+{id:68,cat:"Clase 4",q:"¿Cuáles eran las medidas de la estatua de oro?",a:["60 codos de alto y 6 de ancho (≈27 × 2,7 m)","6 codos de alto y 60 de ancho","70 codos de alto y 7 de ancho","60 metros de alto y 6 de ancho"],exp:"Sesenta codos de alto (≈27 m) y seis de ancho (≈2,7 m)."},
+{id:69,cat:"Clase 4",q:"¿Qué significa Dura, el lugar donde se levantó la estatua?",a:["Fortaleza","Puerta de los dioses","Campo de oro","Río"],exp:"Campo de Dura (fortaleza), en la provincia de Babilonia."},
+{id:70,cat:"Clase 4",q:"Según la clase, ¿qué representaba probablemente la estatua de oro?",a:["Al propio Nabucodonosor o a una deidad asociada al poder imperial","Al Dios de Israel","A Daniel","A los cuatro imperios de Daniel 2"],exp:"Probablemente representaba al propio rey o a una deidad del poder imperial."},
+{id:71,cat:"Clase 4",q:"¿Cuál era el “mensaje implícito” de hacer una estatua toda de oro?",a:["No solo la cabeza será oro; mi reino permanecerá","Mi reino será el más humilde","Reconozco al Dios de Daniel","Mi reino será dividido"],exp:"En Daniel 2 Dios le dijo “tú eres aquella cabeza de oro” (2:38). En Daniel 3 él hace toda la imagen de oro."},
+{id:72,cat:"Clase 4",q:"¿Cómo define la clase la idolatría?",a:["Dar a cualquier persona o cosa el lugar que pertenece únicamente a Dios","Solamente adorar imágenes de piedra","Tener cualquier tipo de arte religioso","Obedecer a un gobierno pagano"],exp:"No consiste solo en adorar imágenes (Éx 20; Ro 1; Col 3:5; 1 Jn 5:21)."},
+{id:73,cat:"Clase 4",q:"¿Qué principio acompaña a Isaías 40:8 en la clase?",a:["El hombre siempre intenta eternizar lo que Dios declaró temporal","La hierba y la flor representan a Israel","La Palabra de Dios cambia con los reinos","Los reinos humanos son eternos"],exp:"Se seca la hierba y se marchita la flor, pero la Palabra de Dios permanece para siempre."},
+{id:74,cat:"Clase 4",q:"¿En qué orden avanza la “religión del Estado” en Daniel 3:2–7?",a:["Gobierno → cultura → música → adoración","Música → cultura → gobierno → adoración","Adoración → música → cultura → gobierno","Cultura → gobierno → adoración → música"],exp:"Primero el gobierno, después la cultura, después la música y finalmente la adoración."},
+{id:75,cat:"Clase 4",q:"Según la clase, ¿cuál era el papel de la música en Daniel 3?",a:["Era el mecanismo para producir obediencia colectiva","Era el problema principal del capítulo","Era un acto de adoración al Dios de Israel","Era para celebrar la victoria sobre Judá"],exp:"La música no era el problema; era el mecanismo para lograr obediencia colectiva."},
+{id:76,cat:"Clase 4",q:"¿Qué termina intentando controlar todo sistema alejado de Dios?",a:["El pensamiento, la conciencia y la adoración","Solo la economía","Solo el ejército","La lengua y la vestimenta"],exp:"Es uno de los principios de la sección sobre la religión del Estado."},
+{id:77,cat:"Clase 4",q:"¿Por qué denunciaron los caldeos a los tres judíos, según la clase?",a:["Porque la fidelidad siempre incomoda al sistema","Porque habían robado oro del rey","Porque querían sus cargos por herencia","Porque no sabían la lengua caldea"],exp:"La clase lo conecta con Juan 15:19: como no son del mundo, el mundo los aborrece."},
+{id:78,cat:"Clase 4",q:"En la respuesta de los tres jóvenes, ¿qué muestra “pero aunque no…”?",a:["Fe: su obediencia no depende del resultado","Convicción: Dios tiene poder","Confianza: Dios es soberano","Duda sobre si Dios los libraría"],exp:"“Dios puede” muestra convicción; “Dios quiere” muestra confianza; “aunque no” muestra fe."},
+{id:79,cat:"Clase 4",q:"¿Qué consumió el fuego del horno?",a:["Las cuerdas, no a los jóvenes","Sus ropas, pero no su cuerpo","Su cabello y sus sandalias","Nada en absoluto, ni siquiera las cuerdas"],exp:"El fuego consumió las cuerdas: salieron libres. Dios no evitó el horno; los acompañó en él (Isaías 43:1–2)."},
+{id:80,cat:"Clase 4",q:"¿Cuántas veces más aumentó Nabucodonosor el fuego?",a:["Siete veces","Tres veces","Diez veces","Setenta veces"],exp:"Siete veces más de lo acostumbrado."},
+{id:81,cat:"Clase 4",q:"¿Cuál NO es una de las razones por las que Dios permitió el horno, según la clase?",a:["Castigar a los jóvenes por aceptar cargos en Babilonia","Manifestar su gloria a todo el imperio","Fortalecer el testimonio de sus escogidos","Humillar al rey y su soberbia"],exp:"Las cuatro razones: manifestó su gloria, fortaleció el testimonio, mostró su poder a pesar del fuego y humilló al rey."},
+{id:82,cat:"Clase 4",q:"¿Qué dice la clase sobre Daniel 3 como patrón profético?",a:["No significa que Nabucodonosor sea el anticristo, pero anticipa sus características","Nabucodonosor es el anticristo final","La estatua de oro es el templo del fin","Daniel 3 no tiene relación con el futuro"],exp:"Anticipa: gobierno mundial dominante, imagen relacionada con adoración y persecución del remanente fiel."},
+{id:83,cat:"Clase 4",q:"¿Cuál de estas NO es una excepción para desobedecer al gobierno, según la clase?",a:["Cuando el gobierno cobra impuestos","Cuando le ordena pecar","Cuando exige idolatría","Cuando prohíbe la oración"],exp:"Las excepciones: ordena pecar, prohíbe obedecer a Dios, exige idolatría (Dn 3) o prohíbe orar (Dn 6). Hechos 5:29."},
+{id:84,cat:"Clase 4",q:"¿Qué textos usa la clase para enseñar que sí se debe obedecer al gobierno?",a:["Romanos 13:1–2, 1 Pedro 2:13–14 y Tito 3:1","Hechos 5:29, Daniel 3 y Daniel 6","Juan 15:19, Isaías 43:2 y Mateo 28:20","Salmo 103:19, Proverbios 21:1 e Isaías 46:9"],exp:"Esos textos enseñan la regla general. Hechos 5:29 marca el límite."},
+{id:85,cat:"Clase 4",q:"¿Qué dice la clase sobre el cuarto personaje en el horno?",a:["Muchos lo ven como cristofanía, pero no es posible afirmarlo","Era Daniel, que entró a rescatarlos","Era un guardia del rey","Era definitivamente el ángel Gabriel"],exp:"Lo importante es la enseñanza: Cristo no promete ausencia de pruebas, promete su presencia (Mateo 28:20)."},
+{id:86,cat:"Clase 4",q:"¿Qué tiene de único Daniel 4 en el Antiguo Testamento?",a:["Está escrito desde la perspectiva de un rey pagano que reconoce a Dios","Es el único capítulo escrito en griego","Es el único sin mencionar a Babilonia","Es el único escrito por Ezequiel"],exp:"Un rey gentil testificando públicamente la soberanía de Dios."},
+{id:87,cat:"Clase 4",q:"Según Daniel 4:22, ¿qué representa el árbol?",a:["A Nabucodonosor, su reino y el poder que Dios le concedió","Al pueblo de Israel","Al Reino de Dios","A Babilonia después de su caída"],exp:"“Tú mismo eres, oh rey.” Era el gobernante del imperio más grande de su época."},
+{id:88,cat:"Clase 4",q:"¿Cuál NO es una de las características del árbol según la clase?",a:["Humildad","Grandeza","Influencia","Protección"],exp:"Las cinco: grandeza, autoridad, prosperidad, influencia y protección."},
+{id:89,cat:"Clase 4",q:"Cuando el vigilante ordena derribar el árbol, ¿qué subraya la clase?",a:["No es accidente ni enfermedad: es un decreto divino","Que fue una conspiración de los caldeos","Que el rey enfermó por su comida","Que fue un castigo por el horno de fuego"],exp:"Daniel 4:13–14: un vigilante desciende del cielo con un decreto de Dios."},
+{id:90,cat:"Clase 4",q:"¿Cuál es el pecado central de Nabucodonosor en Daniel 4?",a:["El orgullo","La idolatría del horno","La profanación de los vasos","La envidia contra Daniel"],exp:"“Mi Babilonia, mi poder, mi gloria” (4:30). El orgullo es tomar para mí lo que pertenece a Dios (Isaías 42:8)."},
+{id:91,cat:"Clase 4",q:"¿Qué principio acompaña a “aún estaba la palabra en la boca del rey” (4:31)?",a:["Dios no solo juzga acciones; juzga corazones","Dios da muchas oportunidades antes de hablar","Dios solo juzga a los reyes de Israel","Las palabras del rey no tenían importancia"],exp:"La disciplina divina llegó mientras el rey se jactaba. Proverbios 16:18: antes de la caída, la altivez."},
+{id:92,cat:"Clase 4",q:"Según la clase, ¿cuándo comienza la restauración?",a:["Cuando el hombre vuelve a reconocer quién gobierna","Cuando el rey recupera su palacio","Cuando pasan los siete tiempos, sin importar su actitud","Cuando Daniel ora por él"],exp:"“Alcé mis ojos al cielo, y mi razón me fue devuelta” (4:34)."},
+{id:93,cat:"Clase 4",q:"¿Cuál es la postura de la clase sobre la conversión de Nabucodonosor?",a:["Hay evidencias esperanzadoras, pero no se debe afirmar más de lo que dice el texto","Es seguro que se convirtió","Es seguro que nunca se convirtió","El texto no da ninguna evidencia"],exp:"Evidencias: reconoce la soberanía de Dios, alaba al Altísimo, se humilla y publica un testimonio."},
+{id:94,cat:"Clase 4",q:"En la comparación, ¿cuál fue la crisis de Daniel 4?",a:["La locura","El horno","El foso","La escritura en la pared"],exp:"Dn 3: horno, fidelidad, liberación. Dn 4: locura, orgullo, restauración."},
+{id:95,cat:"Clase 4",q:"Completa el principio: “Dios humilla para…”",a:["restaurar, no simplemente para destruir","destruir a los orgullosos para siempre","mostrar que los reyes no importan","castigar a Babilonia por Judá"],exp:"Es el quinto principio teológico de la clase 4."},
+// ---- Clase 5: Daniel 5–6
+{id:96,cat:"Clase 5",q:"¿Cuál es la idea central de Daniel 5–6?",a:["Los reinos humanos son evaluados por Dios, pero los fieles son preservados por Él","El hombre caído construye reinos para su gloria","Dios permanece soberano en el exilio","La historia avanza hacia un Reino eterno"],exp:"Las otras son ideas de las clases 4, 2 y 3."},
+{id:97,cat:"Clase 5",q:"¿Por qué los capítulos 5 y 6 marcan un “cambio trascendental”?",a:["Porque comienza el cumplimiento histórico de Daniel 2","Porque Daniel vuelve a Jerusalén","Porque Nabucodonosor se convierte","Porque se reconstruye el templo"],exp:"Dn 5: la caída de Babilonia. Dn 6: la permanencia de Daniel en el cambio de imperio."},
+{id:98,cat:"Clase 5",q:"¿Cómo era el ambiente dentro de Babilonia antes de su caída?",a:["De seguridad y celebración, aunque la situación era crítica","De hambre y miedo","De guerra civil","De luto por Nabucodonosor"],exp:"Babilonia parecía invencible, pero Dios ya había decretado su caída (Jeremías 51:11)."},
+{id:99,cat:"Clase 5",q:"¿Qué texto cita la clase para mostrar que Dios ya había decretado la caída de Babilonia?",a:["Jeremías 51:11","Jeremías 29:10","Isaías 40:8","Salmo 9:8"],exp:"“Contra Babilonia es su pensamiento para destruirla.”"},
+{id:100,cat:"Clase 5",q:"Según la clase, ¿qué provocó la caída de Babilonia?",a:["La profanación: Belsasar usó los utensilios del templo para adorar dioses falsos","El orgullo de Nabucodonosor en su palacio","La negativa de Daniel a adorar la estatua","Una rebelión de los judíos"],exp:"La profanación desató el juicio de Dios y la conquista de medos y persas esa misma noche."},
+{id:101,cat:"Clase 5",q:"En el “camino de la irreverencia”, ¿cuál es la declaración implícita de Belsasar?",a:["“No reconozco la autoridad de Dios sobre mi vida”","“Quiero honrar al Dios de Daniel”","“Babilonia caerá esta noche”","“Solo el rey merece adoración”"],exp:"Acción → significado → declaración implícita → respuesta divina."},
+{id:102,cat:"Clase 5",q:"Según la clase, ¿qué es la irreverencia?",a:["No es neutral: es una declaración de independencia y rebeldía contra el Creador","Un error pequeño sin consecuencias","Solo un problema de modales","Algo que Dios ignora"],exp:"Usar lo sagrado para fines profanos revela desprecio activo hacia Dios."},
+{id:103,cat:"Clase 5",q:"¿Qué significa que MENE aparezca dos veces?",a:["Repetición para énfasis: el juicio es definitivo e irreversible","Que Belsasar reinó dos años","Que habría dos juicios","Que el reino se dividiría en dos"],exp:"El primer MENE: Dios contó los días de tu reino. El segundo: el juicio es definitivo."},
+{id:104,cat:"Clase 5",q:"¿Qué significa literalmente TEKEL?",a:["Pesado","Contado","Dividido","Entregado"],exp:"TEKEL: has sido pesado en la balanza divina y hallado falto."},
+{id:105,cat:"Clase 5",q:"¿Qué significa literalmente UPARSIN?",a:["Y dividido(s)","Pesado","Contado","Destruido"],exp:"UPARSIN: y dividido(s). Al interpretarlo, Daniel usa PERES: tu reino será dividido y entregado a medos y persas."},
+{id:106,cat:"Clase 5",q:"Según la interpretación de PERES, ¿a quiénes sería entregado el reino?",a:["A los medos y persas","A los griegos","A los egipcios","A los judíos"],exp:"Se cumple esa misma noche: Darío de Media toma el reino (5:31)."},
+{id:107,cat:"Clase 5",q:"En Daniel 5, ¿quiénes fracasan al interpretar la escritura?",a:["Magos, caldeos y adivinos","Los príncipes y las concubinas","Los sacerdotes de Jerusalén","Los medos y persas"],exp:"Se repite el patrón: la sabiduría humana nunca reemplaza la revelación divina (1 Corintios 1:20–25)."},
+{id:108,cat:"Clase 5",q:"En el patrón de los sabios, ¿qué no pudieron hacer en Daniel 4?",a:["Explicar el sueño","Revelar el sueño","Interpretar la escritura","Leer las profecías de Jeremías"],exp:"Dn 2: no revelan el sueño. Dn 4: no explican el sueño. Dn 5: no interpretan la escritura. Y siempre Dios responde por Daniel."},
+{id:109,cat:"Clase 5",q:"¿Qué hace Daniel antes de interpretar la escritura?",a:["Predica: le recuerda a Belsasar la historia de Nabucodonosor","Pide tres días para orar","Reclama los regalos prometidos","Se niega a hablar con el rey"],exp:"Daniel 5:22: “no has humillado tu corazón, sabiendo todo esto”."},
+{id:110,cat:"Clase 5",q:"¿Por qué Daniel permanece tranquilo mientras todos tienen miedo?",a:["Porque quien conoce a Dios no depende de las circunstancias","Porque ya sabía que el rey lo premiaría","Porque no entendía lo que pasaba","Porque había huido antes"],exp:"Es uno de los puntos de “La predicación de Daniel” (5:17–23)."},
+{id:111,cat:"Clase 5",q:"Según “El cumplimiento”, ¿cuánto tiempo pasó entre la sentencia y el juicio?",a:["Horas","Meses","Años","Siete tiempos"],exp:"No pasaron años ni meses, pasaron horas. “La misma noche fue muerto Belsasar” (5:30)."},
+{id:112,cat:"Clase 5",q:"En Daniel 5:30–31, ¿qué parte de la estatua de Daniel 2 empieza a cumplirse?",a:["Cae la cabeza de oro","Cae el pecho de plata","La piedra golpea los pies","Se forma el monte"],exp:"Cae Babilonia (el oro) y la toma Medo‑Persia (la plata). Toda profecía de Dios se cumple exactamente."},
+{id:113,cat:"Clase 5",q:"¿Qué edad tenía Darío de Media cuando tomó el reino?",a:["Sesenta y dos años","Setenta años","Cuarenta y dos años","Ochenta años"],exp:"“Darío de Media tomó el reino, siendo de sesenta y dos años” (5:31)."},
+{id:114,cat:"Clase 5",q:"¿Qué título le da Daniel 5:30 a Belsasar?",a:["Rey de los caldeos","Rey de Media","Príncipe de Persia","Gobernador de Dura"],exp:"“La misma noche fue muerto Belsasar rey de los caldeos.”"},
+{id:115,cat:"Clase 5",q:"Darío es el rey que toma Babilonia. ¿Qué parte de la estatua representa su imperio?",a:["El pecho y los brazos de plata","La cabeza de oro","El vientre de bronce","Las piernas de hierro"],exp:"Darío de Media inicia el imperio medo‑persa, la plata (539–331 a.C.)."},
+{id:116,cat:"Clase 5",q:"¿Cómo se divide Daniel 6 según la clase?",a:["Trampa política (1–9), fidelidad y castigo (10–17), liberación y justicia (18–28)","Profanación (1–4), escritura (5–25), juicio (30–31)","Sueño (1–13), oración (14–23), interpretación (36–45)","Estatua (1–7), acusación (8–12), horno (19–27)"],exp:"La segunda opción es la estructura de Daniel 5; las otras son de Daniel 2 y 3."},
+{id:117,cat:"Clase 5",q:"¿Qué edad aproximada tenía Daniel en Daniel 6?",a:["Más de 80 años","Unos 20 años","Unos 50 años","Unos 62 años"],exp:"Décadas después, sigue fiel. 62 años es la edad de Darío."},
+{id:118,cat:"Clase 5",q:"Según la clase, ¿con qué se mide la verdadera espiritualidad?",a:["Con la perseverancia","Con los milagros","Con el cargo que se ocupa","Con el conocimiento de los sueños"],exp:"Daniel no empezó a orar cuando apareció el problema; la oración era su estilo de vida antes."},
+{id:119,cat:"Clase 5",q:"¿Qué NO encontraron los enemigos en Daniel (6:4)?",a:["Corrupción, negligencia ni fraude","Oración, gratitud ni fe","Conocimiento, idioma ni educación","Amigos, familia ni casa"],exp:"No era solamente inteligencia, era integridad. El mejor testimonio es una vida íntegra (Tito 2:7)."},
+{id:120,cat:"Clase 5",q:"Cuando los enemigos no hallaron pecado en Daniel, ¿qué decidieron?",a:["Atacar su fe","Acusarlo de robo","Sobornarlo","Pedir que lo enviaran a Jerusalén"],exp:"“No encontraremos pecado… ataquemos su fe”. La integridad puede provocar oposición (Juan 15:18–20)."},
+{id:121,cat:"Clase 5",q:"¿Qué establecía el decreto de Daniel 6?",a:["Durante 30 días, quien pidiera a cualquier dios u hombre fuera del rey sería echado a los leones","Durante 10 días, todos debían comer de la mesa del rey","Al sonar la música, todos debían postrarse ante la estatua","Todos debían entregar los vasos del templo"],exp:"Las otras opciones mezclan Daniel 1, Daniel 3 y Daniel 5."},
+{id:122,cat:"Clase 5",q:"En la vida de oración de Daniel, ¿qué representa “abrió las ventanas”?",a:["Testimonio","Intimidad","Constancia","Gratitud"],exp:"Entró en su casa (intimidad), abrió las ventanas (testimonio), tres veces al día (constancia), daba gracias (no solamente pedía)."},
+{id:123,cat:"Clase 5",q:"¿Qué contraste presenta la clase entre Daniel y Darío la noche del foso?",a:["Darío no pudo dormir; Daniel descansó en paz","Daniel no pudo dormir; Darío descansó","Ambos oraron toda la noche","Darío entró al foso con Daniel"],exp:"La paz de Dios vence al temor (Filipenses 4:7)."},
+{id:124,cat:"Clase 5",q:"Según la clase, ¿qué hizo Dios en el foso?",a:["Envió su ángel y cerró la boca de los leones: no eliminó el problema, limitó su poder","Sacó a Daniel antes de que lo echaran","Mató a todos los leones","Hizo que Darío cambiara el decreto"],exp:"Dios no siempre elimina el problema; limita su poder (Daniel 6:22)."},
+{id:125,cat:"Clase 5",q:"¿Qué proclama Darío sobre Dios al final de Daniel 6?",a:["Que vive, reina, salva y libra","Que juzga, castiga, destruye y reina","Que es Dios de dioses y revelador de misterios","Que es el Altísimo que humilla a los soberbios"],exp:"La tercera opción se parece a lo que dijo Nabucodonosor en Daniel 2, y la cuarta a Daniel 4."},
+{id:126,cat:"Clase 5",q:"¿Cuál es la “progresión del libro” en la actitud de los reyes?",a:["Nabucodonosor reconoce, Belsasar es juzgado, Darío glorifica","Nabucodonosor es juzgado, Belsasar reconoce, Darío glorifica","Belsasar reconoce, Darío es juzgado, Ciro glorifica","Nabucodonosor glorifica, Belsasar reconoce, Darío es juzgado"],exp:"Es el cierre del testimonio de Darío en la clase 5."},
+{id:127,cat:"Clase 5",q:"En el paralelo con Cristo, ¿qué corresponde a “sellan la piedra del foso” (6:17)?",a:["Sellan la piedra del sepulcro (Mateo 27:66)","Pedro niega a Jesús","Jesús es tentado en el desierto","Jesús entra en Jerusalén"],exp:"Daniel: inocente, acusado por envidia, piedra sellada, sale vivo. Cristo: sin pecado, acusado por envidia (Mr 15:10), sepulcro sellado, resucita."},
+{id:128,cat:"Clase 5",q:"¿Qué texto acompaña el principio “la integridad despierta oposición, pero honra a Dios”?",a:["2 Timoteo 3:12","Salmo 9:8","Proverbios 16:18","Isaías 43:2"],exp:"Salmo 9:8 va con “Dios juzga con justicia”, Proverbios 16:18 con “el orgullo precede al juicio” e Isaías 43:2 con “Dios acompaña en el foso”."},
+// ---- Reyes, años, decretos y conexiones
+{id:129,cat:"Reyes y fechas",q:"¿En qué año cayó Babilonia (Daniel 5)?",a:["539 a.C.","586 a.C.","605 a.C.","331 a.C."],exp:"539 a.C. es el fin de la cabeza de oro (605–539) y el comienzo de Medo‑Persia."},
+{id:130,cat:"Reyes y fechas",q:"¿Qué rey marca el final del servicio de Daniel según 1:21?",a:["Ciro","Darío","Belsasar","Nabucodonosor"],exp:"“Continuó Daniel hasta el año primero del rey Ciro.”"},
+{id:131,cat:"Reyes y fechas",q:"Si Daniel sirvió desde Nabucodonosor hasta Ciro, ¿bajo qué partes de la estatua vivió?",a:["La cabeza de oro y el pecho de plata","Solo la cabeza de oro","El oro, la plata y el bronce","Todas las partes de la estatua"],exp:"Vivió bajo Babilonia (oro) y bajo Medo‑Persia (plata): vio cumplirse el primer cambio de imperio que él mismo anunció."},
+{id:132,cat:"Reyes y fechas",q:"¿Qué rey levantó la estatua de oro y el horno?",a:["Nabucodonosor","Belsasar","Darío","Ciro"],exp:"Nabucodonosor: estatua de Daniel 2 (sueño), estatua de oro y horno (Daniel 3) y árbol (Daniel 4)."},
+{id:133,cat:"Reyes y fechas",q:"¿Qué rey firmó el decreto que llevó a Daniel al foso de los leones?",a:["Darío","Nabucodonosor","Belsasar","Ciro"],exp:"El decreto de 30 días fue de Darío, instigado por gobernadores y sátrapas envidiosos."},
+{id:134,cat:"Reyes y fechas",q:"¿Qué tienen en común los decretos de Daniel 3 y Daniel 6?",a:["Ambos obligaban a elegir entre obedecer al rey o ser fiel a Dios","Ambos fueron firmados por el mismo rey","Ambos castigaban con el horno de fuego","Ambos duraban treinta días"],exp:"Daniel 3 exigía adorar la estatua; Daniel 6 prohibía orar. Por eso la clase los usa como las excepciones a la obediencia al gobierno."},
+{id:135,cat:"Reyes y fechas",q:"En Daniel 3 el decreto exigía ___; en Daniel 6 prohibía ___.",a:["adorar la estatua / orar a Dios","orar a Dios / adorar la estatua","comer del rey / beber vino","hablar arameo / hablar hebreo"],exp:"Uno obligaba a hacer lo prohibido y el otro prohibía hacer lo mandado. En ambos, la respuesta fue obedecer a Dios (Hechos 5:29)."},
+{id:136,cat:"Reyes y fechas",q:"¿En qué capítulo aparece un “decreto divino” en lugar de uno humano?",a:["Daniel 4, cuando el vigilante ordena derribar el árbol","Daniel 3, cuando se ordena adorar la estatua","Daniel 6, cuando se prohíbe orar","Daniel 1, cuando se ordena educar a los jóvenes"],exp:"La clase subraya que no fue accidente ni enfermedad: fue un decreto divino."},
+{id:137,cat:"Reyes y fechas",q:"¿Cuántos años pasan aproximadamente entre Daniel 2 y Daniel 6?",a:["Más de 60 años","Unos 10 años","Unos 30 años","Unos 5 años"],exp:"De 603–602 a.C. (Daniel con 18–20 años) a después de 539 a.C. (Daniel con más de 80)."},
+{id:138,cat:"Reyes y fechas",q:"¿Qué une a Daniel 2, 4 y 5 en el libro?",a:["Los sabios de Babilonia fracasan y Dios da la respuesta por medio de Daniel","En los tres hay un horno de fuego","En los tres gobierna Belsasar","En los tres Daniel es echado al foso"],exp:"Es el patrón que la clase 5 llama “los sabios fracasan nuevamente”."},
+{id:139,cat:"Reyes y fechas",q:"¿Qué une a Daniel 3 y Daniel 6 según los principios de la clase 5?",a:["Dios no siempre evita el horno o el foso, pero acompaña a sus hijos en él","Los fieles son librados antes de la prueba","El rey se convierte al final","Daniel es el protagonista en ambos"],exp:"Principio: Dios no siempre evita el foso, pero siempre acompaña a sus hijos en él (Isaías 43:2). Daniel no aparece en Daniel 3."},
+{id:140,cat:"Reyes y fechas",q:"Nabucodonosor en Dn 4 y Belsasar en Dn 5 fueron orgullosos. ¿Cuál es la diferencia clave?",a:["Nabucodonosor fue humillado y restaurado; Belsasar fue juzgado esa misma noche","Belsasar fue restaurado; Nabucodonosor murió","Ambos se convirtieron","Ninguno recibió advertencia"],exp:"Belsasar conocía lo que le pasó a Nabucodonosor y no se humilló (5:22). Por eso su juicio fue inmediato."}
+];
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+// Motor de quiz reutilizable: cada intento saca preguntas nunca vistas hasta agotar el banco
+function createQuiz(cfg){
+  const $=id=>document.getElementById(id);
+  let current=[], graded=false, attempt=0, mem=[];
+  const getSeen=()=>{ try{ return JSON.parse(localStorage.getItem(cfg.key)) || []; }catch(e){ return mem; } };
+  const setSeen=ids=>{ mem=ids; try{ localStorage.setItem(cfg.key, JSON.stringify(ids)); }catch(e){} };
+  let restarted=false;
+  function newRound(){
+    let seen=getSeen().filter(id=>cfg.bank.some(q=>q.id===id));
+    let fresh=cfg.bank.filter(q=>!seen.includes(q.id));
+    restarted=false;
+    if(fresh.length < cfg.perTry){
+      // Banco agotado: se reinicia, evitando las preguntas del intento anterior
+      const last=current.map(q=>q.id);
+      seen=[]; restarted=true;
+      fresh=cfg.bank.filter(q=>!last.includes(q.id));
+    }
+    current=shuffle(fresh).slice(0,cfg.perTry).map(q=>({...q, opts:shuffle(q.a)}));
+    setSeen(seen.concat(current.map(q=>q.id)));
+    graded=false; attempt++;
+    render();
+  }
+  function render(){
+    const box=$(cfg.boxId); box.classList.remove('graded');
+    box.innerHTML=current.map((q,i)=>`
+      <div class="q" id="${cfg.prefix}q${i}">
+        <div class="q-top"><span class="q-n">${i+1}</span><span class="q-ref">${esc(cfg.chip(q))}</span></div>
+        <h3>${esc(q.q)}</h3>
+        ${q.opts.map((o,j)=>`<label class="opt"><input type="radio" name="${cfg.prefix}r${i}" value="${j}"><span>${esc(o)}</span></label>`).join('')}
+        <div class="fbwrap"></div>
+      </div>`).join('');
+    $(cfg.scoreId).innerHTML='';
+    const remaining=cfg.bank.length-getSeen().length;
+    $(cfg.infoId).textContent = restarted
+      ? `Intento ${attempt}: ya viste las ${cfg.bank.length} preguntas, así que empieza una nueva vuelta (sin repetir las del intento anterior).`
+      : `Intento ${attempt}: estas 10 preguntas no habían salido antes. Quedan ${remaining} preguntas nuevas de ${cfg.bank.length}.`;
+    const btn=$(cfg.gradeId); btn.disabled=false; btn.textContent='Calificar';
+  }
+  function grade(){
+    if(graded) return;
+    const un=current.filter((q,i)=>!document.querySelector(`input[name="${cfg.prefix}r${i}"]:checked`)).length;
+    if(un && !confirm(`Te faltan ${un} preguntas por responder. Las que dejes en blanco contarán como incorrectas. ¿Calificar de todos modos?`)) return;
+    graded=true; let ok=0;
+    current.forEach((q,i)=>{
+      const card=$(`${cfg.prefix}q${i}`);
+      const sel=document.querySelector(`input[name="${cfg.prefix}r${i}"]:checked`);
+      const chosen=sel ? q.opts[+sel.value] : null, right=q.a[0];
+      card.querySelectorAll('input').forEach(x=>x.disabled=true);
+      card.querySelectorAll('.opt').forEach(l=>{
+        const t=l.querySelector('span').textContent;
+        if(t===right) l.classList.add('ok'); else if(t===chosen) l.classList.add('bad');
+      });
+      const fb=card.querySelector('.fbwrap');
+      if(chosen===right){ ok++; fb.innerHTML=`<div class="fb ok"><b>Correcto.</b>${esc(q.exp)}</div>`; }
+      else{
+        const lead=chosen ? `Respondiste “${esc(chosen)}”, pero la respuesta es “${esc(right)}”.` : `No respondiste. La respuesta es “${esc(right)}”.`;
+        fb.innerHTML=`<div class="fb bad"><b>Incorrecto.</b>${lead} ${esc(q.exp)}${cfg.tail?cfg.tail(q):''}</div>`;
+      }
+    });
+    $(cfg.boxId).classList.add('graded');
+    const pct=Math.round(ok/current.length*100);
+    const msg=pct===100?'Excelente, todas correctas.':pct>=70?'Buen trabajo. Repasa las marcadas en rojo.':'Repasa las marcadas en rojo y haz otro intento.';
+    $(cfg.scoreId).innerHTML=`<p class="score">${ok} de ${current.length} correctas (${pct}%)</p><p>${msg}</p>`;
+    const btn=$(cfg.gradeId); btn.disabled=true; btn.textContent='Calificado';
+    $(cfg.scoreId).scrollIntoView({block:'start'});
+  }
+  $(cfg.gradeId).addEventListener('click',grade);
+  $(cfg.newId).addEventListener('click',()=>{ newRound(); $(cfg.sectionId).scrollIntoView({block:'start'}); });
+  newRound();
+}
+
+createQuiz({bank:SLIDES_BANK, perTry:10, key:'daniel-quiz-slides-seen', prefix:'s', boxId:'quizBox', scoreId:'quizScore', infoId:'quizInfo', gradeId:'quizGrade', newId:'quizNew', sectionId:'quiz', chip:q=>q.cat});
+createQuiz({bank:BANK, perTry:10, key:'daniel-exam-seen', prefix:'b', boxId:'examBox', scoreId:'examScore', infoId:'examInfo', gradeId:'gradeBtn', newId:'newAttempt', sectionId:'examen', chip:q=>'Busca: '+q.ref, tail:q=>' Vuelve a leer '+esc(q.ref)+'.'});
+
+document.querySelectorAll('#rjump button').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.t);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}));
+document.getElementById('openAll').addEventListener('click',()=>document.querySelectorAll('#repaso details').forEach(d=>d.open=true));
+document.getElementById('closeAll').addEventListener('click',()=>document.querySelectorAll('#repaso details').forEach(d=>d.open=false));
+</script>
+</body>
+</html>
